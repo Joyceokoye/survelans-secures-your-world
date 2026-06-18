@@ -6,6 +6,8 @@ import ring from "@/assets/ring.jpg";
 import camera from "@/assets/camera.jpg";
 import app from "@/assets/app.jpg";
 import alarm from "@/assets/alarm.jpg";
+import taser from "@/assets/taser.jpg";
+import pepperspray from "@/assets/pepperspray.jpg";
 import { Shield, MapPin, Bell, Lock, ArrowRight, Check } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -92,11 +94,13 @@ function Home() {
               See everything <ArrowRight className="w-4 h-4" />
             </a>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { img: ring, t: "Safety Ring", p: "A slim ring with a hidden panic button. Press to send an alert.", price: "$129" },
-              { img: alarm, t: "Pocket Alarm", p: "Tiny keychain alarm. Pull the pin to scare off threats with a loud siren.", price: "$39" },
-              { img: camera, t: "Home Camera", p: "Smart indoor camera with night vision and motion alerts on your phone.", price: "$149" },
+              { img: ring, t: "Safety Ring", p: "A bold gold signet ring with a hidden chip and panic button. Press to send an alert.", price: "₦185,000" },
+              { img: pepperspray, t: "Pepper Spray", p: "Compact pepper spray that fits in your bag. Stops a threat in its tracks.", price: "₦18,500" },
+              { img: taser, t: "Pocket Taser", p: "Rechargeable stun gun with built-in flashlight. Strong shock, easy grip.", price: "₦95,000" },
+              { img: alarm, t: "Pocket Alarm", p: "Tiny keychain alarm. Pull the pin to scare off threats with a loud siren.", price: "₦25,000" },
+              { img: camera, t: "Home Camera", p: "Smart indoor camera with night vision and motion alerts on your phone.", price: "₦210,000" },
               { img: app, t: "Survélans App", p: "The brain. Live location, SOS, and emergency contacts all in one place.", price: "Free" },
             ].map((p) => (
               <article key={p.t} className="group bg-card border border-border rounded-lg overflow-hidden hover:border-gold/60 transition-all">
