@@ -52,7 +52,7 @@ function Home() {
               </a>
             </div>
             <p className="mt-8 text-xs tracking-widest text-muted-foreground uppercase">
-              Trusted by 10,000+ people in 14 countries
+              Trusted by thousands of people across Nigeria
             </p>
           </div>
         </div>
