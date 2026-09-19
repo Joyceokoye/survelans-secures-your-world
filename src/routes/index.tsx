@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
-import logo from "@/assets/survelans-logo.png.asset.json";
+import logo from "@/assets/survelans-logo-orange.png.asset.json";
 import hero from "@/assets/hero.jpg";
 import ring from "@/assets/ring.jpg";
 import camera from "@/assets/camera.jpg";
@@ -17,6 +17,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Smart safety wearables, a panic-button app, and home security from Survélans. Stay safe with one tap." },
       { property: "og:title", content: "Survélans — Safety Before You Need It" },
       { property: "og:description", content: "Smart safety wearables, a panic-button app, and home security from Survélans." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,

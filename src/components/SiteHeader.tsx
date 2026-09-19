@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "@/assets/survelans-logo.png.asset.json";
+import logo from "@/assets/survelans-logo-orange.png.asset.json";
 import { Menu, X } from "lucide-react";
 
 const links = [
