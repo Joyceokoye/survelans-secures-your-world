@@ -37,9 +37,6 @@ function Home() {
 
         <div className="relative max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="flex items-center gap-2 text-gold text-xs tracking-[0.3em] uppercase mb-6">
-              <span className="w-8 h-px bg-gold" /> Personal Safety, Reimagined
-            </div>
             <h1 className="text-5xl md:text-7xl leading-[1.05] mb-6">
               Safety before <br /> you <span className="gold-text italic">need it.</span>
             </h1>
