@@ -1,14 +1,22 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import logo from "@/assets/survelans-logo-orange.png.asset.json";
 import hero from "@/assets/hero.jpg";
-import ring from "@/assets/ring.jpg";
+import bracelet from "@/assets/safety-bracelet.jpg";
 import camera from "@/assets/camera.jpg";
 import app from "@/assets/app.jpg";
 import alarm from "@/assets/alarm.jpg";
 import taser from "@/assets/taser.jpg";
 import pepperspray from "@/assets/pepperspray.jpg";
 import { Shield, MapPin, Bell, Lock, ArrowRight, Check } from "lucide-react";
+
+const supportEmail = "mailto:support@survelans.com?subject=Survelans%20Product%20Enquiry";
+
+const cameraOptions = [
+  { name: "Mini Indoor Camera", price: "₦20,000" },
+  { name: "Smart Wi-Fi Camera", price: "₦75,000" },
+  { name: "Advanced Security Camera", price: "₦167,000" },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,7 +55,7 @@ function Home() {
               <a href="#app" className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gold text-primary-foreground font-medium hover:opacity-90 transition">
                 Download the App <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
               </a>
-              <a href="#products" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-gold/60 text-foreground hover:bg-gold/10 transition">
+              <a href={supportEmail} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-gold/60 text-foreground hover:bg-gold/10 transition">
                 Shop Products
               </a>
             </div>
@@ -89,18 +97,18 @@ function Home() {
               <p className="text-gold text-xs tracking-[0.3em] uppercase mb-4">The Range</p>
               <h2 className="text-4xl md:text-5xl">Built to look good. Made to keep you safe.</h2>
             </div>
-            <a href="#contact" className="text-gold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all">
-              See everything <ArrowRight className="w-4 h-4" />
+            <a href={supportEmail} className="text-gold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all">
+              Ask about a product <ArrowRight className="w-4 h-4" />
             </a>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { img: ring, t: "Safety Ring", p: "A bold gold signet ring with a hidden chip and panic button. Press to send an alert.", price: "₦185,000" },
-              { img: pepperspray, t: "Pepper Spray", p: "Compact pepper spray that fits in your bag. Stops a threat in its tracks.", price: "₦18,500" },
-              { img: taser, t: "Pocket Taser", p: "Rechargeable stun gun with built-in flashlight. Strong shock, easy grip.", price: "₦95,000" },
-              { img: alarm, t: "Pocket Alarm", p: "Tiny keychain alarm. Pull the pin to scare off threats with a loud siren.", price: "₦25,000" },
-              { img: camera, t: "Home Camera", p: "Smart indoor camera with night vision and motion alerts on your phone.", price: "₦210,000" },
-              { img: app, t: "Survélans App", p: "The brain. Live location, SOS, and emergency contacts all in one place.", price: "Free" },
+              { img: bracelet, t: "Safety Bracelet", p: "A discreet black bracelet with a concealed trigger. It pairs with the Survelans app by Bluetooth to start an SOS session without opening your phone.", price: "Contact us" },
+              { img: pepperspray, t: "Pepper Spray", p: "Compact spray designed to cause temporary irritation, giving you a chance to move away. Results can vary with distance and wind.", price: "₦18,500" },
+              { img: taser, t: "Pocket Taser", p: "A compact rechargeable stun device designed to help create time and distance in a threatening situation.", price: "₦25,000" },
+              { img: alarm, t: "Pocket Alarm", p: "A small keychain alarm that makes a loud sound to draw attention and may help discourage a threat.", price: "₦9,000" },
+              { img: camera, t: "Home Camera", p: "Choose a camera for indoor monitoring, phone alerts, and evidence capture. Features vary by model.", price: null },
+              { img: app, t: "Survélans App", p: "Pair your bracelet, choose up to three emergency contacts, and manage SOS location, audio, and incident records.", price: "Download for free" },
             ].map((p) => (
               <article key={p.t} className="group bg-card border border-border rounded-lg overflow-hidden hover:border-gold/60 transition-all">
                 <div className="aspect-square overflow-hidden bg-secondary">
@@ -109,9 +117,27 @@ function Home() {
                 <div className="p-6">
                   <div className="flex justify-between items-baseline mb-2">
                     <h3 className="text-xl">{p.t}</h3>
-                    <span className="text-gold text-sm font-medium">{p.price}</span>
+                    {p.price && <span className="text-gold text-sm font-medium text-right">{p.price}</span>}
                   </div>
                   <p className="text-sm text-muted-foreground">{p.p}</p>
+                  {p.t === "Home Camera" && (
+                    <label className="block mt-5">
+                      <span className="sr-only">Choose a home camera</span>
+                      <select className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
+                        {cameraOptions.map((option) => (
+                          <option key={option.name} value={option.name}>
+                            {option.name} — {option.price}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
+                  <a
+                    href={`mailto:support@survelans.com?subject=${encodeURIComponent(`Enquiry about ${p.t}`)}`}
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-gold hover:underline"
+                  >
+                    Contact to order <ArrowRight className="w-4 h-4" />
+                  </a>
                 </div>
               </article>
             ))}
@@ -128,10 +154,10 @@ function Home() {
           </div>
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { i: Shield, t: "Wear it", d: "Put on your ring or clip the alarm to your bag. It's always ready." },
-              { i: Bell, t: "Press it", d: "Hold the hidden button for two seconds to fire off the alert." },
-              { i: MapPin, t: "We send help", d: "Your live location and a recording go to your trusted contacts." },
-              { i: Lock, t: "Stay protected", d: "The app keeps tracking until you say you're safe." },
+              { i: Shield, t: "Pair it", d: "Connect the Safety Bracelet to the Survelans app using Bluetooth, then add up to three trusted contacts." },
+              { i: Bell, t: "Press the trigger", d: "A deliberate press on the concealed trigger tells the paired phone to start an emergency session." },
+              { i: MapPin, t: "The app sends an alert", d: "With permission, the phone can share its location, start audio recording, and notify your chosen contacts." },
+              { i: Lock, t: "Keep an incident record", d: "The app can save the alert time, location updates, and permitted audio for you to review securely." },
             ].map((s, i) => (
               <div key={s.t} className="relative">
                 <div className="w-14 h-14 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center mb-5">
@@ -142,6 +168,12 @@ function Home() {
                 <p className="text-sm text-muted-foreground">{s.d}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-12 border-l-2 border-gold pl-5 max-w-3xl">
+            <h3 className="text-xl mb-2">Keep your phone connected</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The first bracelet version uses your phone’s Bluetooth, GPS, microphone, battery, permissions, and internet connection. Alerts may not send if the phone is off, out of range, offline, or the needed permissions are disabled. Survelans is a personal safety aid; it does not contact emergency services directly or guarantee a response.
+            </p>
           </div>
         </div>
       </section>
@@ -164,7 +196,7 @@ function Home() {
                 "One-tap SOS with live location sharing",
                 "Quiet audio recording when you feel unsafe",
                 "Walk-with-me mode for late nights",
-                "Works with every Survélans device",
+                "Works with paired Survelans wearables",
               ].map((f) => (
                 <li key={f} className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-gold mt-0.5 shrink-0" />
@@ -173,8 +205,7 @@ function Home() {
               ))}
             </ul>
             <div className="flex flex-wrap gap-4">
-              <a href="#" className="px-7 py-3.5 rounded-full bg-gold text-primary-foreground font-medium hover:opacity-90 transition">App Store</a>
-              <a href="#" className="px-7 py-3.5 rounded-full border border-gold/60 hover:bg-gold/10 transition">Google Play</a>
+              <a href="mailto:support@survelans.com?subject=Survelans%20App%20Download" className="px-7 py-3.5 rounded-full bg-gold text-primary-foreground font-medium hover:opacity-90 transition">Download for free</a>
             </div>
           </div>
         </div>
@@ -224,11 +255,11 @@ function Home() {
               Join thousands who carry Survélans with them. Get the app free, or grab a device that fits your life.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="#app" className="px-8 py-4 rounded-full bg-gold text-primary-foreground font-medium hover:opacity-90 transition">
-                Download the App
+              <a href="mailto:support@survelans.com?subject=Survelans%20Support" className="px-8 py-4 rounded-full bg-gold text-primary-foreground font-medium hover:opacity-90 transition">
+                Contact Support
               </a>
-              <a href="#products" className="px-8 py-4 rounded-full border border-gold/60 hover:bg-gold/10 transition">
-                Shop Devices
+              <a href={supportEmail} className="px-8 py-4 rounded-full border border-gold/60 hover:bg-gold/10 transition">
+                Ask About Products
               </a>
             </div>
           </div>
@@ -247,7 +278,7 @@ function Home() {
           <div>
             <h4 className="text-sm tracking-widest uppercase text-gold mb-4 font-sans">Shop</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#products" className="hover:text-foreground">Safety Ring</a></li>
+              <li><a href="#products" className="hover:text-foreground">Safety Bracelet</a></li>
               <li><a href="#products" className="hover:text-foreground">Pocket Alarm</a></li>
               <li><a href="#products" className="hover:text-foreground">Home Camera</a></li>
               <li><a href="#app" className="hover:text-foreground">The App</a></li>
@@ -257,8 +288,8 @@ function Home() {
             <h4 className="text-sm tracking-widest uppercase text-gold mb-4 font-sans">Company</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="#about" className="hover:text-foreground">About</a></li>
-              <li><a href="#contact" className="hover:text-foreground">Contact</a></li>
-              <li><a href="#" className="hover:text-foreground">Privacy</a></li>
+              <li><a href="mailto:support@survelans.com?subject=Survelans%20Support" className="hover:text-foreground">Contact</a></li>
+              <li><Link to="/privacy" className="hover:text-foreground">Privacy</Link></li>
               <li><a href="#" className="hover:text-foreground">Terms</a></li>
             </ul>
           </div>
