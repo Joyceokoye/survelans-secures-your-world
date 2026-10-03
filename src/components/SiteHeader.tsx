@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "@/assets/survelans-logo-orange.png.asset.json";
+import logo from "@/assets/survelans-logo-cropped.png.asset.json";
 import { Menu, X } from "lucide-react";
 
 const links = [
@@ -16,7 +16,7 @@ export function SiteHeader() {
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border">
       <div className="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2">
-          <img src={logo.url} alt="Survélans" className="h-[95px] w-auto" />
+          <img src={logo.url} alt="Survélans" className="h-auto w-[133px]" />
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
