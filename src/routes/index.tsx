@@ -46,7 +46,7 @@ function Home() {
         <div className="relative max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-5xl md:text-7xl leading-[1.05] mb-6">
-              Safety before <br /> you <span className="gold-text italic">need it.</span>
+              Safety is always <br /> <span className="gold-text italic">within reach.</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-md mb-8">
               Smart wearables, a one-tap panic app, and home security — all working together so help is always close.
@@ -270,7 +270,7 @@ function Home() {
       <footer className="border-t border-border py-16">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
-            <img src={logo.url} alt="Survélans" className="h-[68px] w-auto mb-4" />
+            <img src={logo.url} alt="Survélans" className="h-[95px] w-auto mb-4" />
             <p className="text-sm text-muted-foreground max-w-xs">
               Personal safety technology, designed to be worn every day.
             </p>
