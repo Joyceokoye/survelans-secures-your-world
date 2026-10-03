@@ -21,9 +21,9 @@ const cameraOptions = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Survélans — Safety Before You Need It" },
+      { title: "Survélans — Safety Is Always Within Reach" },
       { name: "description", content: "Smart safety wearables, a panic-button app, and home security from Survélans. Stay safe with one tap." },
-      { property: "og:title", content: "Survélans — Safety Before You Need It" },
+      { property: "og:title", content: "Survélans — Safety Is Always Within Reach" },
       { property: "og:description", content: "Smart safety wearables, a panic-button app, and home security from Survélans." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -38,7 +38,7 @@ function Home() {
       <SiteHeader />
 
       {/* HERO */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center pt-28 overflow-hidden">
         <img src={hero} alt="" className="absolute inset-0 w-full h-full object-cover opacity-50" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
