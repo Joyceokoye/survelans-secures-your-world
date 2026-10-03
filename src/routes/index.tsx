@@ -21,9 +21,9 @@ const cameraOptions = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Survélans — Safety Before You Need It" },
+      { title: "Survélans — Safety Is Always Within Reach" },
       { name: "description", content: "Smart safety wearables, a panic-button app, and home security from Survélans. Stay safe with one tap." },
-      { property: "og:title", content: "Survélans — Safety Before You Need It" },
+      { property: "og:title", content: "Survélans — Safety Is Always Within Reach" },
       { property: "og:description", content: "Smart safety wearables, a panic-button app, and home security from Survélans." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -38,7 +38,7 @@ function Home() {
       <SiteHeader />
 
       {/* HERO */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center pt-28 overflow-hidden">
         <img src={hero} alt="" className="absolute inset-0 w-full h-full object-cover opacity-50" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
@@ -46,7 +46,7 @@ function Home() {
         <div className="relative max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-5xl md:text-7xl leading-[1.05] mb-6">
-              Safety before <br /> you <span className="gold-text italic">need it.</span>
+              Safety is always <br /> <span className="gold-text italic">within reach.</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-md mb-8">
               Smart wearables, a one-tap panic app, and home security — all working together so help is always close.
@@ -270,7 +270,7 @@ function Home() {
       <footer className="border-t border-border py-16">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
-            <img src={logo.url} alt="Survélans" className="h-[68px] w-auto mb-4" />
+            <img src={logo.url} alt="Survélans" className="h-[95px] w-auto mb-4" />
             <p className="text-sm text-muted-foreground max-w-xs">
               Personal safety technology, designed to be worn every day.
             </p>
