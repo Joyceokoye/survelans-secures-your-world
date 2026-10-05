@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
-import logo from "@/assets/survelans-logo-cropped.png.asset.json";
+import logo from "@/assets/survelans-logo.png";
 import hero from "@/assets/hero.jpg";
 import bracelet from "@/assets/safety-bracelet.jpg";
 import camera from "@/assets/camera.jpg";
@@ -270,7 +270,7 @@ function Home() {
       <footer className="border-t border-border py-16">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
-            <img src={logo.url} alt="Survélans" className="h-auto w-[186px] mb-4" />
+            <img src={logo} alt="Survélans" className="h-auto w-[186px] mb-4" />
             <p className="text-sm text-muted-foreground max-w-xs">
               Personal safety technology, designed to be worn every day.
             </p>
