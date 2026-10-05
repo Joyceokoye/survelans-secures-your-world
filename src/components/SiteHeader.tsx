@@ -16,7 +16,7 @@ export function SiteHeader() {
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border">
       <div className="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2">
-          <img src={logo} alt="Survélans" className="h-auto w-[133px]" />
+          <img src={logo} alt="Survélans" width={800} height={177} loading="eager" fetchPriority="high" className="h-auto w-[133px]" />
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
