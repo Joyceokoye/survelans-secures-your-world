@@ -84,7 +84,3 @@
   background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
   height: 1px;
 }
-
-@keyframes flow-pulse { 0%,100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--gold) 0%, transparent); } 50% { box-shadow: 0 0 0 8px color-mix(in oklab, var(--gold) 25%, transparent); } }
-.flow-pulse { animation: flow-pulse 2.4s ease-in-out infinite; }
-@media (prefers-reduced-motion: reduce) { .flow-pulse { animation: none; } }
