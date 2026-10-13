@@ -6,7 +6,7 @@ const links = [
   { href: "#products", label: "Products" },
   { href: "#app", label: "The App" },
   { href: "#how", label: "How It Works" },
-  { href: "#about", label: "About" },
+  { href: "#waitlist", label: "Waitlist" },
   { href: "mailto:support@survelans.com?subject=Survelans%20Support", label: "Contact" },
 ];
 
@@ -24,8 +24,8 @@ export function SiteHeader() {
               {l.label}
             </a>
           ))}
-          <a href="/#app" className="px-5 py-2 rounded-full bg-gold text-primary-foreground text-sm font-medium hover:opacity-90 transition">
-            Get the App
+          <a href="/#waitlist" className="px-5 py-2 rounded-full bg-gold text-primary-foreground text-sm font-medium hover:opacity-90 transition">
+            Join the Waitlist
           </a>
         </nav>
         <button className="md:hidden text-foreground" onClick={() => setOpen(!open)} aria-label="Menu">
@@ -40,8 +40,8 @@ export function SiteHeader() {
                 {l.label}
               </a>
             ))}
-            <a href="/#app" onClick={() => setOpen(false)} className="px-5 py-2.5 rounded-full bg-gold text-primary-foreground text-sm font-medium text-center">
-              Get the App
+            <a href="/#waitlist" onClick={() => setOpen(false)} className="px-5 py-2.5 rounded-full bg-gold text-primary-foreground text-sm font-medium text-center">
+              Join the Waitlist
             </a>
           </div>
         </div>
