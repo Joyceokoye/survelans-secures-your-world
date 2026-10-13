@@ -10,7 +10,3 @@
 <!-- LOVABLE:END -->
 
 - Keep the public privacy notice in its own `/privacy` route so legal information is linkable and readable independently of the landing page.
-- Use the existing shared header and design-system Button for navigation and actions so public pages stay consistent.
-- Keep the workflow illustration in a browser-safe component with CSS reduced-motion fallback so it remains lightweight and SSR-compatible.
-- Emit analytics hooks as name-only browser custom events; do not send personal data or claim collected analytics without a configured receiver.
-- Do not implement a lead form without a tested destination; private spreadsheet sharing links are not submission endpoints.

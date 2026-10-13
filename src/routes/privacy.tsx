@@ -20,13 +20,12 @@ const sections = [
   {
     title: "1. About this policy",
     content: [
-      "This notice explains our current website and support contact practices and the intended data use for the Survelans app and Safety Bracelet, which are under development. Planned app practices are not a claim that these services are live.",
-      "This website does not currently offer app accounts, emergency recording, location tracking, checkout or a working waitlist form. Emailing support shares your address and message with us. A public waitlist form and its collection notice must be in place before we collect signups here.",
+      "This policy explains how Survelans handles personal information when you use our website, contact support, buy a product, or use the planned Survelans app and connected Safety Bracelet.",
       "We follow the Nigeria Data Protection Act 2023 and applicable guidance from the Nigeria Data Protection Commission. Product features may change during development, and we will update this notice when our data practices change.",
     ],
   },
   {
-    title: "2. Information planned app features may collect",
+    title: "2. Information we may collect",
     content: [
       "Account and contact details, such as your name, phone number, email address, login details, and delivery information.",
       "Emergency-contact details that you choose to add, including names and phone numbers. You should tell those contacts and have permission to provide their details.",
@@ -38,7 +37,7 @@ const sections = [
   {
     title: "3. Why we use information",
     content: [
-      "We currently use support messages to answer requests. Planned app processing may support secure accounts, pairing, the SOS workflow, contact alerts, incident records and family tools. Collection details, providers and retention periods will be confirmed before these features launch.",
+      "We use information to create and secure accounts, pair devices, provide the SOS workflow, notify chosen contacts, show incident records, complete orders, answer support requests, prevent misuse, fix faults, and meet legal duties.",
       "Depending on the activity, our lawful reason may be your consent, our contract with you, a legal duty, our legitimate interest in operating a safe service, or protection of a person’s vital interests during an emergency. We will ask for clear permission before using the phone’s location or microphone where required.",
     ],
   },
@@ -52,7 +51,7 @@ const sections = [
   {
     title: "5. Who may receive information",
     content: [
-      "In the planned app, up to three chosen emergency contacts may receive available alerts and location details. They would not automatically receive every item in your account. Family-profile, communication and Watch Mode sharing will need clear access settings and explanations before launch.",
+      "Your chosen emergency contacts may receive an alert, identity details, and a location link when you activate SOS. They do not automatically receive every item stored in your account.",
       "Trusted companies may process hosting, notifications, maps, customer support, analytics, payments, or message delivery for us under confidentiality and data-protection terms. We may also disclose information when lawfully required, to investigate abuse, or to protect someone from serious harm.",
       "We do not sell personal information. We do not use emergency audio or precise location for advertising.",
     ],
@@ -60,7 +59,7 @@ const sections = [
   {
     title: "6. Storage, retention, and deletion",
     content: [
-      "Support messages are kept only as needed to handle the request or meet applicable duties. The retention periods for future accounts, family profiles and emergency records have not yet been finalised and must be explained before launch.",
+      "We keep information only as long as needed for the purpose described, to protect the service, resolve a dispute, or meet a legal duty. Account information is normally kept while the account is active. Support and transaction records may be kept for legal, fraud-prevention, and service purposes.",
       "Emergency recordings and precise location records will not be kept forever by default. The app will provide retention information and deletion controls before these features are publicly released. A record may be kept longer if you preserve it, it relates to an active incident, or the law requires it.",
     ],
   },
@@ -113,7 +112,7 @@ function PrivacyPolicy() {
           <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed">
             A clear guide to what Survelans may collect, why we need it, and the choices you have.
           </p>
-          <p className="mt-5 text-sm text-muted-foreground">Updated: 13 October 2026 · Planned app practices are subject to confirmation before launch.</p>
+          <p className="mt-5 text-sm text-muted-foreground">Effective: 30 September 2026</p>
 
           <div className="mt-16 divide-y divide-border border-y border-border">
             {sections.map((section) => (

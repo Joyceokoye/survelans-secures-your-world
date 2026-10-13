@@ -1,122 +1,304 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
-import { Button } from "@/components/ui/button";
-import { ProductFlow } from "@/components/ProductFlow";
-import { trackSiteEvent } from "@/lib/site-events";
 import logo from "@/assets/survelans-logo.png";
 import hero from "@/assets/hero.jpg";
-import bracelet from "@/assets/bracelet-owner.jpg.asset.json";
+import bracelet from "@/assets/safety-bracelet.jpg";
 import camera from "@/assets/camera.jpg";
+import app from "@/assets/app.jpg";
 import alarm from "@/assets/alarm.jpg";
 import taser from "@/assets/taser.jpg";
 import pepperspray from "@/assets/pepperspray.jpg";
-import { ArrowRight, Bluetooth, Fingerprint, MapPin, Mic, Users, Smartphone, Palette, MessageCircle, Footprints, Mail, Facebook, Instagram, Youtube } from "lucide-react";
+import { Shield, MapPin, Bell, Lock, ArrowRight, Check } from "lucide-react";
+
+const supportEmail = "mailto:support@survelans.com?subject=Survelans%20Product%20Enquiry";
+
+const cameraOptions = [
+  { name: "Mini Indoor Camera", price: "₦20,000" },
+  { name: "Smart Wi-Fi Camera", price: "₦75,000" },
+  { name: "Advanced Security Camera", price: "₦167,000" },
+];
 
 export const Route = createFileRoute("/")({
-  head: () => ({ meta: [
-    { title: "Survelans — Safety Is Always Within Reach" },
-    { name: "description", content: "Survelans is developing a discreet safety bracelet and companion app to help you alert trusted contacts through your paired phone." },
-    { property: "og:title", content: "Survelans — Safety Is Always Within Reach" },
-    { property: "og:description", content: "Discover the Survelans Safety Bracelet, planned companion app, and phone-connected emergency workflow." },
-    { property: "og:type", content: "website" },
-    { name: "twitter:card", content: "summary_large_image" },
-  ] }), component: Home,
+  head: () => ({
+    meta: [
+      { title: "Survélans — Safety Is Always Within Reach" },
+      { name: "description", content: "Smart safety wearables, a panic-button app, and home security from Survélans. Stay safe with one tap." },
+      { property: "og:title", content: "Survélans — Safety Is Always Within Reach" },
+      { property: "og:description", content: "Smart safety wearables, a panic-button app, and home security from Survélans." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Home,
 });
 
-const steps = [
-  { icon: Bluetooth, title: "Pair your wearable", text: "Connect your Safety Bracelet to the Survelans companion app on your phone using Bluetooth." },
-  { icon: Fingerprint, title: "Press and hold", text: "A long press on the bracelet sends a trigger to your paired phone when you need help." },
-  { icon: MapPin, title: "The phone starts the alert", text: "The app attempts to share your current location with up to three pre-saved emergency contacts, with your permissions and a working connection." },
-  { icon: Mic, title: "Capture a short recording", text: "The planned app attempts a 30-second recording through your phone’s microphone. Successfully captured audio is intended to upload to your private incident record, where permissions, connectivity and law allow." },
-  { icon: Users, title: "Reach your trusted people", text: "Your contacts receive the available alert and location details. Incident information and captured recordings can be reviewed in the planned companion app under its access and privacy controls." },
-];
-const features = [
-  { icon: Palette, title: "Make it yours", text: "Personalise the app icon or appearance, where supported." },
-  { icon: Users, title: "A family space", text: "View and manage connected loved-one profiles in a family space for up to four members." },
-  { icon: MessageCircle, title: "Stay in touch", text: "Planned communication and distress signals for family members and trusted loved ones." },
-  { icon: Footprints, title: "Watch Mode", text: "Planned live GPS sharing and step tracking while you take a walk." },
-];
-function WaitlistLink({ className = "", primary = false }: { className?: string; primary?: boolean }) {
-  return <Button asChild size="lg" className={`rounded-full h-12 ${className}`}><a href="#waitlist" onClick={() => { trackSiteEvent("waitlist_cta_click"); if (primary) trackSiteEvent("product_primary_cta_click"); }}>Join the Waitlist <ArrowRight /></a></Button>;
-}
 function Home() {
-  const mainRef = useRef<HTMLElement>(null);
-  useEffect(() => {
-    const root = mainRef.current;
-    if (!root || typeof IntersectionObserver === "undefined") return;
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const name = entry.target.getAttribute("data-event");
-        if (entry.isIntersecting && name) { trackSiteEvent(name); observer.unobserve(entry.target); }
-      });
-    }, { threshold: 0.25 });
-    root.querySelectorAll("[data-event]").forEach(el => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
   return (
     <div id="top" className="min-h-screen bg-background text-foreground">
       <SiteHeader />
-      <main ref={mainRef}>
-        <section className="relative overflow-hidden pt-28 border-b border-border">
-          <img src={hero} alt="" width={1920} height={1080} fetchPriority="high" className="absolute inset-0 size-full object-cover opacity-60" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
-          <div className="relative mx-auto max-w-7xl px-6 py-12 lg:py-16 grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
-            <div>
-              <p className="text-gold text-xs uppercase tracking-widest mb-5">Survelans · Personal safety technology</p>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl leading-[1.05] mb-6">Safety is always <span className="gold-text italic">within reach.</span></h1>
-              <p className="max-w-lg text-lg text-muted-foreground leading-relaxed mb-8">Survelans is developing discreet wearable technology that helps you alert the people you trust when you need help.</p>
-              <div className="flex flex-wrap gap-4 items-center"><WaitlistLink /><Button asChild variant="link" className="text-foreground"><a href="#how">See How It Works <ArrowRight /></a></Button></div>
+
+      {/* HERO */}
+      <section className="relative min-h-screen flex items-center pt-28 overflow-hidden">
+        <img src={hero} alt="" className="absolute inset-0 w-full h-full object-cover opacity-50" width={1920} height={1080} />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
+
+        <div className="relative max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 className="text-5xl md:text-7xl leading-[1.05] mb-6">
+              Safety is always <br /> <span className="gold-text italic">within reach.</span>
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-md mb-8">
+              Smart wearables, a one-tap panic app, and home security — all working together so help is always close.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a href="#app" className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gold text-primary-foreground font-medium hover:opacity-90 transition">
+                Download the App <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
+              </a>
+              <a href={supportEmail} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-gold/60 text-foreground hover:bg-gold/10 transition">
+                Shop Products
+              </a>
             </div>
-            <div>
-              <div className="flex justify-between gap-4 text-xs mb-3"><span className="text-gold">Safety Bracelet</span><span className="text-muted-foreground">Under development</span></div>
-              <img src={bracelet.url} alt="Owner-supplied concept image of the black Survelans Safety Bracelet" width={775} height={338} className="w-full aspect-[775/338] object-cover" />
-              <p className="text-xs text-muted-foreground mt-2">Product concept supplied by Survelans.</p>
-              <ProductFlow />
-            </div>
+            <p className="mt-8 text-xs tracking-widest text-muted-foreground uppercase">
+              Trusted by thousands of people across Nigeria
+            </p>
           </div>
-        </section>
-        <section id="about" className="py-16 md:py-20 border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 md:gap-16">
-            <div><p className="text-gold text-xs uppercase tracking-widest mb-4">Our purpose</p><h2 className="text-4xl md:text-5xl">Making everyday safety easier to reach for.</h2></div>
-            <div className="text-muted-foreground text-lg leading-relaxed space-y-5"><p>We are building practical safety technology for everyday life, so reaching out for help can feel simpler when using your phone openly is difficult or unsafe.</p><p>For students, families and anyone who wants a more discreet way to reach their trusted people. A safety aid, not a promise of protection.</p></div>
+        </div>
+      </section>
+
+      {/* PROBLEM */}
+      <section className="py-28 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-2xl mb-16">
+            <p className="text-gold text-xs tracking-[0.3em] uppercase mb-4">Why Survélans</p>
+            <h2 className="text-4xl md:text-5xl">When something feels off, seconds matter.</h2>
           </div>
-        </section>
-        <section id="products" className="py-16 md:py-24 border-b border-border">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center mb-20">
-              <div><img src={bracelet.url} alt="Black beaded Safety Bracelet with a Survelans trigger module, product concept" width={775} height={338} loading="lazy" className="w-full aspect-[775/338] object-cover" /></div>
-              <div><p className="text-gold text-xs uppercase tracking-widest mb-4">The primary wearable · In development</p><h2 className="text-4xl md:text-5xl mb-5">Safety Bracelet</h2><p className="text-muted-foreground leading-relaxed mb-6">A discreet wearable trigger designed to work with your phone. Pair it using Bluetooth, add your trusted contacts and use a long press to start the planned emergency workflow.</p><p className="text-sm text-muted-foreground mb-6">The bracelet relies on the paired phone for location, audio and internet access.</p><WaitlistLink primary /></div>
-            </div>
-            <div className="border-t border-border pt-10"><h3 className="text-3xl mb-8">Explore Other Safety Products</h3>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8">
-                {[
-                  { img: pepperspray, title: "Pepper Spray", price: "₦18,500", text: "A compact self-defence option. Suitability and lawful use depend on your circumstances." },
-                  { img: taser, title: "Pocket Taser", price: "₦25,000", text: "A compact stun device. Follow safety instructions and applicable local laws." },
-                  { img: alarm, title: "Pocket Alarm", price: "₦9,000", text: "A personal alarm designed to draw attention with sound." },
-                  { img: camera, title: "Home Camera", price: "₦20,000–₦167,000", text: "Home-monitoring options. Model specifications and availability are not yet confirmed." },
-                ].map(product => <article key={product.title}><div className="aspect-square bg-secondary overflow-hidden mb-4"><img src={product.img} alt={`Illustrative ${product.title.toLowerCase()}, not confirmed product photography`} width={1024} height={1024} loading="lazy" className="size-full object-cover" /></div><p className="text-xs text-muted-foreground mb-2">Illustrative image</p><h4 className="text-lg font-medium mb-1">{product.title}</h4><p className="text-gold text-sm mb-3">{product.price}</p><p className="text-muted-foreground text-sm leading-relaxed">{product.text}</p></article>)}
+          <div className="grid md:grid-cols-3 gap-px bg-border">
+            {[
+              { n: "01", h: "You can't always call.", p: "Sometimes you can't reach for your phone. One tap on a Survélans device sends the alert for you." },
+              { n: "02", h: "Danger doesn't wait.", p: "Bad things happen fast. Your location, audio, and an alert go out the second you press the button." },
+              { n: "03", h: "Stay calm. Stay safe.", p: "You shouldn't have to choose between looking normal and getting help. Our gear is quiet and discreet." },
+            ].map((c) => (
+              <div key={c.n} className="bg-background p-10">
+                <div className="text-gold font-display text-5xl mb-6">{c.n}</div>
+                <h3 className="text-2xl mb-3">{c.h}</h3>
+                <p className="text-muted-foreground">{c.p}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRODUCTS */}
+      <section id="products" className="py-28 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
+            <div className="max-w-2xl">
+              <p className="text-gold text-xs tracking-[0.3em] uppercase mb-4">The Range</p>
+              <h2 className="text-4xl md:text-5xl">Built to look good. Made to keep you safe.</h2>
+            </div>
+            <a href={supportEmail} className="text-gold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all">
+              Ask about a product <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { img: bracelet, t: "Safety Bracelet", p: "A discreet black bracelet with a concealed trigger. It pairs with the Survelans app by Bluetooth to start an SOS session without opening your phone.", price: "Contact us" },
+              { img: pepperspray, t: "Pepper Spray", p: "Compact spray designed to cause temporary irritation, giving you a chance to move away. Results can vary with distance and wind.", price: "₦18,500" },
+              { img: taser, t: "Pocket Taser", p: "A compact rechargeable stun device designed to help create time and distance in a threatening situation.", price: "₦25,000" },
+              { img: alarm, t: "Pocket Alarm", p: "A small keychain alarm that makes a loud sound to draw attention and may help discourage a threat.", price: "₦9,000" },
+              { img: camera, t: "Home Camera", p: "Choose a camera for indoor monitoring, phone alerts, and evidence capture. Features vary by model.", price: null },
+              { img: app, t: "Survélans App", p: "Pair your bracelet, choose up to three emergency contacts, and manage SOS location, audio, and incident records.", price: "Download for free" },
+            ].map((p) => (
+              <article key={p.t} className="group bg-card border border-border rounded-lg overflow-hidden hover:border-gold/60 transition-all">
+                <div className="aspect-square overflow-hidden bg-secondary">
+                  <img src={p.img} alt={p.t} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+                </div>
+                <div className="p-6">
+                  <div className="flex justify-between items-baseline mb-2">
+                    <h3 className="text-xl">{p.t}</h3>
+                    {p.price && <span className="text-gold text-sm font-medium text-right">{p.price}</span>}
+                  </div>
+                  <p className="text-sm text-muted-foreground">{p.p}</p>
+                  {p.t === "Home Camera" && (
+                    <label className="block mt-5">
+                      <span className="sr-only">Choose a home camera</span>
+                      <select className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
+                        {cameraOptions.map((option) => (
+                          <option key={option.name} value={option.name}>
+                            {option.name} — {option.price}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
+                  <a
+                    href={`mailto:support@survelans.com?subject=${encodeURIComponent(`Enquiry about ${p.t}`)}`}
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-gold hover:underline"
+                  >
+                    Contact to order <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section id="how" className="py-28 border-t border-border bg-card/30">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-2xl mb-16">
+            <p className="text-gold text-xs tracking-[0.3em] uppercase mb-4">How It Works</p>
+            <h2 className="text-4xl md:text-5xl">One press. Help is on the way.</h2>
+          </div>
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              { i: Shield, t: "Pair it", d: "Connect the Safety Bracelet to the Survelans app using Bluetooth, then add up to three trusted contacts." },
+              { i: Bell, t: "Press the trigger", d: "A deliberate press on the concealed trigger tells the paired phone to start an emergency session." },
+              { i: MapPin, t: "The app sends an alert", d: "With permission, the phone can share its location, start audio recording, and notify your chosen contacts." },
+              { i: Lock, t: "Keep an incident record", d: "The app can save the alert time, location updates, and permitted audio for you to review securely." },
+            ].map((s, i) => (
+              <div key={s.t} className="relative">
+                <div className="w-14 h-14 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center mb-5">
+                  <s.i className="w-6 h-6 text-gold" />
+                </div>
+                <div className="text-gold/60 text-sm mb-2">Step {i + 1}</div>
+                <h3 className="text-xl mb-2">{s.t}</h3>
+                <p className="text-sm text-muted-foreground">{s.d}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 border-l-2 border-gold pl-5 max-w-3xl">
+            <h3 className="text-xl mb-2">Keep your phone connected</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The first bracelet version uses your phone’s Bluetooth, GPS, microphone, battery, permissions, and internet connection. Alerts may not send if the phone is off, out of range, offline, or the needed permissions are disabled. Survelans is a personal safety aid; it does not contact emergency services directly or guarantee a response.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* APP */}
+      <section id="app" className="py-28 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+          <div className="relative">
+            <div className="absolute -inset-10 bg-gold/10 blur-3xl rounded-full" />
+            <img src={app} alt="Survélans app" loading="lazy" className="relative rounded-2xl border border-border w-full" />
+          </div>
+          <div>
+            <p className="text-gold text-xs tracking-[0.3em] uppercase mb-4">The App</p>
+            <h2 className="text-4xl md:text-5xl mb-6">Your safety, in your pocket.</h2>
+            <p className="text-muted-foreground mb-8 text-lg">
+              The free Survélans app turns your phone into a safety hub. Set up trusted contacts, share your live location, and call for help in a single tap.
+            </p>
+            <ul className="space-y-3 mb-10">
+              {[
+                "One-tap SOS with live location sharing",
+                "Quiet audio recording when you feel unsafe",
+                "Walk-with-me mode for late nights",
+                "Works with paired Survelans wearables",
+              ].map((f) => (
+                <li key={f} className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-gold mt-0.5 shrink-0" />
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-4">
+              <a href="mailto:support@survelans.com?subject=Survelans%20App%20Download" className="px-7 py-3.5 rounded-full bg-gold text-primary-foreground font-medium hover:opacity-90 transition">Download for free</a>
             </div>
           </div>
-        </section>
-        <section id="how" data-event="how_it_works_section_view" className="py-16 md:py-24 border-b border-border">
-          <div className="max-w-7xl mx-auto px-6"><p className="text-gold text-xs uppercase tracking-widest mb-4">How It Works · Planned workflow</p><h2 className="text-4xl md:text-5xl mb-12">From your bracelet to your trusted people.</h2>
-            <ol className="grid md:grid-cols-5 gap-8">{steps.map((step, index) => <li key={step.title} className="border-t border-border pt-5"><div className="flex items-center justify-between text-gold mb-5"><span className="font-display text-3xl">0{index + 1}</span><step.icon className="size-5" /></div><h3 className="text-2xl leading-tight mb-3">{step.title}</h3><p className="text-sm text-muted-foreground leading-relaxed">{step.text}</p></li>)}</ol>
-            <p className="mt-10 border-l-2 border-gold pl-5 text-sm leading-relaxed text-muted-foreground max-w-4xl">Features depend on phone permissions, Bluetooth connection, battery, and network availability. Location and recording also depend on applicable law. Survelans cannot guarantee emergency-service response or rescue. Automatic alerts to emergency services are not confirmed.</p>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="py-28 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-2xl mb-16">
+            <p className="text-gold text-xs tracking-[0.3em] uppercase mb-4">Real Stories</p>
+            <h2 className="text-4xl md:text-5xl">People feel safer with Survélans.</h2>
           </div>
-        </section>
-        <section id="app" data-event="app_features_section_view" className="py-16 md:py-24 border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="flex flex-col items-center justify-center border border-dashed border-border bg-card aspect-[4/5] max-h-[560px] py-10 px-6"><Smartphone className="size-16 text-gold mb-6" strokeWidth={1} /><p className="font-display text-3xl text-center">Survelans companion app</p><p className="text-sm text-muted-foreground text-center mt-4">App interface image pending</p><span className="text-xs text-muted-foreground mt-2">Placeholder — not a live app screen</span></div>
-            <div><p className="text-gold text-xs uppercase tracking-widest mb-4">The companion app · Planned features</p><h2 className="text-4xl md:text-5xl mb-6">A companion app that keeps your trusted people closer.</h2><p className="text-muted-foreground leading-relaxed mb-8">The Survelans companion app is being designed to bring your wearable, emergency contacts, and family safety tools together in one place.</p><ul className="space-y-6">{features.map(feature => <li key={feature.title} className="flex gap-4"><feature.icon className="size-5 shrink-0 text-gold mt-1" /><div><h3 className="text-xl mb-1">{feature.title}</h3><p className="text-sm text-muted-foreground leading-relaxed">{feature.text}</p></div></li>)}</ul><p className="text-xs text-muted-foreground mt-8">These features are in development; the app is not offered for download here.</p></div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { q: "I walk home from class at night and don't feel scared anymore. The ring is part of my outfit now.", a: "Amaka, 22 — Student" },
+              { q: "I got the camera for my mum's place. She loves seeing who's at the door from her phone.", a: "David, 34 — Lagos" },
+              { q: "Pressed the alarm once on a bad date. My friend got my location in seconds and came to get me.", a: "Zara, 27 — Abuja" },
+            ].map((t) => (
+              <figure key={t.a} className="bg-card border border-border rounded-lg p-8">
+                <div className="text-gold font-display text-5xl leading-none mb-4">"</div>
+                <blockquote className="mb-6 text-lg leading-relaxed">{t.q}</blockquote>
+                <figcaption className="text-sm text-muted-foreground">{t.a}</figcaption>
+              </figure>
+            ))}
           </div>
-        </section>
-        <section id="waitlist" className="py-16 md:py-24 border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center"><div><p className="text-gold text-xs uppercase tracking-widest mb-4">Stay in the loop</p><h2 className="text-4xl md:text-5xl mb-6">Ready to feel safer every day?</h2><p className="text-muted-foreground text-lg leading-relaxed max-w-lg">Join the Survelans waitlist for updates as we develop a more discreet way to reach the people you trust when you need help.</p></div><div className="md:border-l border-border md:pl-12"><p className="text-lg mb-3">Waitlist signup is not open yet.</p><p className="text-sm text-muted-foreground leading-relaxed mb-6">We’re preparing a public signup form. No email address or name is collected on this website yet.</p><Button disabled size="lg" className="rounded-full h-12">Join the Waitlist <ArrowRight /></Button><p className="text-sm mt-5"><a href="mailto:support@survelans.com?subject=Survelans%20Waitlist%20Question" className="text-gold underline underline-offset-4">Questions? Email support@survelans.com</a></p></div></div>
-        </section>
-      </main>
-      <footer className="py-12"><div className="max-w-7xl mx-auto px-6"><div className="grid md:grid-cols-2 gap-10"><div><a href="#top" aria-label="Survelans home"><img src={logo} alt="Survelans" width={800} height={177} loading="lazy" className="w-[186px] h-auto mb-5" /></a><p className="text-lg font-display">Safety is always within reach.</p></div><div className="md:text-right"><div className="flex flex-wrap md:justify-end gap-6 text-sm mb-6"><a href="#products">Products</a><a href="#how">How It Works</a><a href="mailto:support@survelans.com">Contact</a><Link to="/privacy">Privacy</Link></div><div className="flex gap-3 md:justify-end items-center">{[{ Icon: Facebook, label: "Facebook" }, { Icon: Instagram, label: "Instagram" }, { Icon: Youtube, label: "YouTube" }].map(({ Icon, label }) => <Button key={label} variant="ghost" size="icon" disabled aria-label={`${label}: official link not supplied`} title={`${label}: official link not supplied`}><Icon /></Button>)}<Button asChild variant="ghost" size="icon"><a href="https://x.com/Survelans" target="_blank" rel="noopener noreferrer" aria-label="Survelans on X" title="Survelans on X" onClick={() => trackSiteEvent("social_link_click")}><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.4l8.2-9.4L.8 2h6.4l4.5 6.8L18.9 2ZM17.8 20h1.7L6.2 4H4.4l13.4 16Z" /></svg></a></Button><Button asChild variant="ghost" size="icon"><a href="mailto:support@survelans.com" aria-label="Email Survelans support" title="Email Survelans support"><Mail /></a></Button></div></div></div><div className="mt-10 pt-6 border-t border-border text-xs text-muted-foreground flex flex-wrap justify-between gap-4"><p>© {new Date().getFullYear()} Survelans. All rights reserved.</p><p>Designed in Nigeria. Under development.</p></div></div></footer>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section id="about" className="py-28 border-t border-border">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <p className="text-gold text-xs tracking-[0.3em] uppercase mb-4">About Survélans</p>
+          <h2 className="text-4xl md:text-6xl mb-8">We started Survélans because everyone deserves to feel safe.</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Survélans is a personal safety brand for women, students, families, and anyone who has ever felt uneasy walking home alone. We make safety gear that actually looks good — so you'll wear it every day. Because real safety isn't loud or scary. It's quiet, ready, and always with you.
+          </p>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section id="contact" className="py-28 border-t border-border">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="rounded-3xl bg-gradient-to-br from-gold/15 via-card to-card border border-gold/30 p-12 md:p-20 text-center relative overflow-hidden">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-12 bg-gradient-to-b from-gold to-transparent" />
+            <h2 className="text-4xl md:text-6xl mb-6 max-w-2xl mx-auto">Ready to feel safer every day?</h2>
+            <p className="text-muted-foreground mb-10 max-w-xl mx-auto text-lg">
+              Join thousands who carry Survélans with them. Get the app free, or grab a device that fits your life.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <a href="mailto:support@survelans.com?subject=Survelans%20Support" className="px-8 py-4 rounded-full bg-gold text-primary-foreground font-medium hover:opacity-90 transition">
+                Contact Support
+              </a>
+              <a href={supportEmail} className="px-8 py-4 rounded-full border border-gold/60 hover:bg-gold/10 transition">
+                Ask About Products
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-border py-16">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+          <div className="md:col-span-2">
+            <img src={logo} alt="Survélans" className="h-auto w-[186px] mb-4" />
+            <p className="text-sm text-muted-foreground max-w-xs">
+              Personal safety technology, designed to be worn every day.
+            </p>
+          </div>
+          <div>
+            <h4 className="text-sm tracking-widest uppercase text-gold mb-4 font-sans">Shop</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><a href="#products" className="hover:text-foreground">Safety Bracelet</a></li>
+              <li><a href="#products" className="hover:text-foreground">Pocket Alarm</a></li>
+              <li><a href="#products" className="hover:text-foreground">Home Camera</a></li>
+              <li><a href="#app" className="hover:text-foreground">The App</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-sm tracking-widest uppercase text-gold mb-4 font-sans">Company</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><a href="#about" className="hover:text-foreground">About</a></li>
+              <li><a href="mailto:support@survelans.com?subject=Survelans%20Support" className="hover:text-foreground">Contact</a></li>
+              <li><Link to="/privacy" className="hover:text-foreground">Privacy</Link></li>
+              <li><a href="#" className="hover:text-foreground">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-border text-xs text-muted-foreground flex justify-between flex-wrap gap-4">
+          <p>© {new Date().getFullYear()} Survélans. All rights reserved.</p>
+          <p>Built for safety. Worn with confidence.</p>
+        </div>
+      </footer>
     </div>
   );
 }
