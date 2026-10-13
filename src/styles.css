@@ -73,7 +73,23 @@
       radial-gradient(ellipse at top, color-mix(in oklab, var(--gold) 10%, transparent), transparent 60%),
       radial-gradient(ellipse at bottom, color-mix(in oklab, var(--gold) 6%, transparent), transparent 70%);
   }
-  h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: 0; }
+  section[id], div[id] { scroll-margin-top: 8rem; }
+  a:focus-visible, select:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
+}
+
+@keyframes flow-signal {
+  0%, 75%, 100% { opacity: 0.7; transform: translateY(0); }
+  15%, 35% { opacity: 1; transform: translateY(-3px); }
+}
+.flow-stage { animation: flow-signal 5s ease-in-out infinite; }
+.flow-stage-1 { animation-delay: 0.7s; }
+.flow-stage-2 { animation-delay: 1.4s; }
+.flow-stage-3 { animation-delay: 2.1s; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .flow-stage { animation: none; }
+  *, *::before, *::after { transition-duration: 0s !important; }
 }
 
 @utility gold-text {
