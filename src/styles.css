@@ -84,3 +84,13 @@
   background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
   height: 1px;
 }
+
+@keyframes flow-pulse { 0% { left: -35%; } 100% { left: 100%; } }
+@keyframes flow-glow { 0%, 100% { box-shadow: 0 0 0 0 transparent; } 50% { box-shadow: 0 0 24px 2px color-mix(in oklab, var(--gold) 45%, transparent); } }
+.flow-pulse { animation: flow-pulse 2.4s linear infinite; }
+.flow-node { animation: flow-glow 2.4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .flow-pulse, .flow-node { animation: none; }
+  .flow-pulse { display: none; }
+}
