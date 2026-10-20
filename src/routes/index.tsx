@@ -5,12 +5,13 @@ import { WaitlistForm } from "@/components/WaitlistForm";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { track } from "@/lib/track";
 import hero from "@/assets/hero.jpg";
-import bracelet from "@/assets/safety-bracelet.jpg";
+import braceletAsset from "@/assets/survelans-safety-bracelet.jpg.asset.json";
+import appScreenshot from "@/assets/app-screenshot-cutout.png";
 import camera from "@/assets/camera.jpg";
 import alarm from "@/assets/alarm.jpg";
 import taser from "@/assets/taser.jpg";
 import pepperspray from "@/assets/pepperspray.jpg";
-import { Watch, Smartphone, MapPin, Users, Bluetooth, Hand, Share2, Mic, ShieldCheck, ArrowRight, ImageIcon } from "lucide-react";
+import { Watch, Smartphone, MapPin, Users, Bluetooth, Hand, Share2, Mic, ShieldCheck, ArrowRight } from "lucide-react";
 
 const cameraOptions = [
   { name: "Mini Indoor Camera", price: "₦20,000" },
@@ -83,16 +84,16 @@ const steps = [
   { Icon: ShieldCheck, t: "Respond", d: "Your contacts get the info that's available. Only authorised people can see incident details in the app." },
 ];
 
-const appFeatures: { f: string; s: "In development" | "Planned" }[] = [
-  { f: "SOS emergency activation and alerts", s: "In development" },
-  { f: "Emergency contacts and location sharing", s: "In development" },
-  { f: "Secure emergency audio recordings", s: "In development" },
-  { f: "Wearable connection and device management", s: "In development" },
-  { f: "Family Space for up to four members", s: "Planned" },
-  { f: "Loved ones' profiles and shared locations", s: "Planned" },
-  { f: "Family chat and distress signals", s: "Planned" },
-  { f: "Watch Mode with live GPS and step tracking (where supported)", s: "Planned" },
-  { f: "Personalise how your app looks", s: "Planned" },
+const appFeatures = [
+  "SOS emergency activation and alerts",
+  "Emergency contacts and location sharing",
+  "Secure emergency audio recordings",
+  "Wearable connection and device management",
+  "Family Space for up to four members",
+  "Loved ones' profiles and shared locations",
+  "Family chat and distress signals",
+  "Watch Mode with live GPS and step tracking (where supported)",
+  "Personalise how your app looks",
 ];
 
 const faqs = [
@@ -171,7 +172,7 @@ function Home() {
           <Eyebrow>Our Product</Eyebrow>
           <div className="grid lg:grid-cols-5 gap-10 items-start">
             <div className="lg:col-span-3 relative rounded-2xl overflow-hidden border border-border bg-secondary">
-              <img src={bracelet} alt="Survelans Safety Bracelet prototype" className="w-full aspect-[4/3] object-cover" loading="lazy" />
+              <img src={braceletAsset.url} alt="Survelans Safety Bracelet" className="w-full aspect-[4/3] object-cover" loading="lazy" />
               <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-background/80 border border-gold/50 text-xs text-gold">Prototype — concept image</span>
             </div>
             <div className="lg:col-span-2">
@@ -179,10 +180,6 @@ function Home() {
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 A sleek bracelet with a hidden trigger. It's designed to pair with your phone over Bluetooth and start an SOS alert to your chosen contacts — without unlocking your phone. Price and launch date to be confirmed.
               </p>
-              <div className="rounded-xl border border-border bg-card p-6">
-                <p className="font-medium mb-4">Be first to know when it launches</p>
-                <WaitlistForm source="product" compact />
-              </div>
             </div>
           </div>
 
@@ -248,25 +245,49 @@ function Home() {
       {/* APP */}
       <section id="app" className="py-28 border-t border-border scroll-mt-28">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-          <div className="relative">
-            <div className="absolute -inset-10 bg-gold/10 blur-3xl rounded-full" />
-            <div className="relative mx-auto max-w-xs aspect-[9/19] rounded-[2.5rem] border-2 border-dashed border-gold/40 bg-card flex flex-col items-center justify-center text-center p-8">
-              <ImageIcon className="w-10 h-10 text-gold mb-4" />
-              <p className="font-medium mb-1">App screenshot coming soon</p>
-              <p className="text-xs text-muted-foreground">Placeholder — real screens will be added when the app is ready.</p>
+          <div className="flex flex-col items-center gap-6">
+            <img src={appScreenshot} alt="Survelans safety app home screen displayed on a phone" className="w-full max-w-sm object-contain" loading="lazy" />
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a href="https://survelans-safety-app--cyberwithjoyce.replit.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-gold/60 px-5 py-3.5 text-sm font-semibold text-gold hover:bg-gold/10 transition">
+                <span className="h-2 w-2 rounded-full bg-gold" aria-hidden="true" /> LIVE
+              </a>
+              <a href="https://survelans-safety-app--cyberwithjoyce.replit.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-primary-foreground font-medium hover:opacity-90 transition">
+                Try the free demo <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
           <div>
             <Eyebrow>Companion App</Eyebrow>
             <h2 className="text-4xl md:text-5xl mb-6">Your personal safety companion, wherever you go.</h2>
             <ul className="space-y-3">
-              {appFeatures.map((x) => (
-                <li key={x.f} className="flex items-start justify-between gap-4 border-b border-border pb-3">
-                  <span>{x.f}</span>
-                  <span className={`shrink-0 text-[11px] px-2 py-0.5 rounded-full border ${x.s === "Planned" ? "border-border text-muted-foreground" : "border-gold/50 text-gold"}`}>{x.s}</span>
+              {appFeatures.map((feature) => (
+                <li key={feature} className="border-b border-border pb-3">
+                  <span>{feature}</span>
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* FOUNDER */}
+      <section id="founder" className="py-28 border-t border-border scroll-mt-28">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <Eyebrow>Introducing the Founder</Eyebrow>
+            <h2 className="text-4xl md:text-5xl mb-6">The person behind Survelans.</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">Meet Joyce Okoye, founder of Survelans, and hear the story behind the brand.</p>
+          </div>
+          <div className="aspect-[9/16] max-h-[680px] w-full overflow-hidden rounded-lg border border-border bg-card">
+            <iframe
+              className="h-full w-full"
+              src="https://www.youtube.com/embed/tswCe74CkTI"
+              title="Introducing Joyce Okoye, founder of Survelans"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>

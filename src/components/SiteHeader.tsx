@@ -10,6 +10,7 @@ const links = [
   { href: "/#products", label: "Our Product" },
   { href: "/#how", label: "How It Works" },
   { href: "/#app", label: "Companion App" },
+  { href: "/#founder", label: "Founder" },
   { href: "/#faq", label: "FAQs" },
   { href: "/contact", label: "Contact" },
 ];
