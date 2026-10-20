@@ -1,0 +1,6 @@
+- [ ] Replace the main bracelet photo with the newly uploaded product image.
+- [ ] Remove the background from the attached app screenshot and add it beside a live demo button linked to the supplied app.
+- [ ] Keep app feature names/descriptions, but remove development/planned labels.
+- [ ] Keep only the top and bottom waitlist sections; remove the product-level waitlist form.
+- [ ] Add a founder introduction section with the YouTube video embedded.
+- [ ] Verify desktop/mobile layout and current build status.
