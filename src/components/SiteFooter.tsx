@@ -35,6 +35,7 @@ export function SiteFooter() {
             <li><a href="/#products" className="hover:text-foreground">Our Product</a></li>
             <li><a href="/#how" className="hover:text-foreground">How It Works</a></li>
             <li><a href="/#app" className="hover:text-foreground">Companion App</a></li>
+            <li><a href="/#founder" className="hover:text-foreground">Founder</a></li>
             <li><a href="/#faq" className="hover:text-foreground">FAQs</a></li>
             <li><a href="/#waitlist" className="hover:text-foreground">Join the Waitlist</a></li>
           </ul>
