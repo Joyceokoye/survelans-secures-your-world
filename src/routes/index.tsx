@@ -10,7 +10,7 @@ import camera from "@/assets/camera.jpg";
 import alarm from "@/assets/alarm.jpg";
 import taser from "@/assets/taser.jpg";
 import pepperspray from "@/assets/pepperspray.jpg";
-import { Watch, Smartphone, MapPin, Users, Bluetooth, Hand, Share2, Mic, ShieldCheck, ArrowRight, ImageIcon } from "lucide-react";
+import { Watch, Smartphone, MapPin, Users, Bluetooth, Hand, Share2, Mic, ShieldCheck, ArrowRight } from "lucide-react";
 
 const cameraOptions = [
   { name: "Mini Indoor Camera", price: "₦20,000" },
@@ -246,10 +246,14 @@ function Home() {
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div className="flex flex-col items-center gap-6">
             <img src={appScreenshot} alt="Survelans safety app home screen displayed on a phone" className="w-full max-w-sm object-contain" loading="lazy" />
-            <a href="https://survelans-safety-app--cyberwithjoyce.replit.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-full bg-gold px-7 py-3.5 text-primary-foreground font-medium hover:opacity-90 transition">
-              <span className="inline-flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-primary-foreground" aria-hidden="true" /> LIVE</span>
-              Try the free demo <ArrowRight className="w-4 h-4" />
-            </a>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a href="https://survelans-safety-app--cyberwithjoyce.replit.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-gold/60 px-5 py-3.5 text-sm font-semibold text-gold hover:bg-gold/10 transition">
+                <span className="h-2 w-2 rounded-full bg-gold" aria-hidden="true" /> LIVE
+              </a>
+              <a href="https://survelans-safety-app--cyberwithjoyce.replit.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-primary-foreground font-medium hover:opacity-90 transition">
+                Try the free demo <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
           </div>
           <div>
             <Eyebrow>Companion App</Eyebrow>
