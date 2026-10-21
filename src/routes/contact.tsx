@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Mail, Instagram, Twitter } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Contact & Support — Survélans" },

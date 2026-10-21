@@ -6,6 +6,7 @@ import type { Tables } from "@/integrations/supabase/types";
 import logo from "@/assets/survelans-logo-orange.png";
 
 export const Route = createFileRoute("/admin")({
+  staticData: { sitemap: false },
   ssr: false,
   head: () => ({
     meta: [

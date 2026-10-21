@@ -3,6 +3,7 @@ import { LegalPage } from "@/components/LegalPage";
 import { DataRequestForm } from "@/components/DataRequestForm";
 
 export const Route = createFileRoute("/data-retention")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Data Retention & Deletion — Survélans" },
