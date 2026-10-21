@@ -29,7 +29,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div>
-          <h4 className="text-sm tracking-widest uppercase text-gold mb-4 font-sans">Explore</h4>
+          <h3 className="text-sm tracking-widest uppercase text-gold mb-4 font-sans">Explore</h3>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li><a href="/#about" className="hover:text-foreground">About</a></li>
             <li><a href="/#products" className="hover:text-foreground">Our Product</a></li>
@@ -41,7 +41,7 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <h4 className="text-sm tracking-widest uppercase text-gold mb-4 font-sans">Help & Legal</h4>
+          <h3 className="text-sm tracking-widest uppercase text-gold mb-4 font-sans">Help & Legal</h3>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li><Link to="/contact" className="hover:text-foreground">Contact & Support</Link></li>
             <li><Link to="/privacy" className="hover:text-foreground">Privacy Policy</Link></li>

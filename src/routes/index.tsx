@@ -193,7 +193,7 @@ function Home() {
                   </div>
                   <div className="p-5">
                     <div className="flex justify-between items-baseline mb-2 gap-2">
-                      <h4 className="text-lg font-display font-semibold">{p.t}</h4>
+                      <h3 className="text-lg font-display font-semibold">{p.t}</h3>
                       {p.price && <span className="text-gold text-sm font-medium">{p.price}</span>}
                     </div>
                     <p className="text-sm text-muted-foreground">{p.p}</p>
