@@ -1,5 +1,5 @@
-- [ ] Finish Google Search Console verification and submit the published sitemap.
-- [ ] Change the top “See how it works” button to “Try the demo” linked to the existing demo.
+- [ ] Finish Google Search Console property registration and sitemap submission — verification succeeded; blocked because registration approval was declined.
+- [x] Change the top “See how it works” button to “Try the demo” linked to the existing demo.
 - [ ] Replace the main bracelet photo with the newly uploaded product image.
 - [ ] Remove the background from the attached app screenshot and add it beside a live demo button linked to the supplied app.
 - [ ] Keep app feature names/descriptions, but remove development/planned labels.
