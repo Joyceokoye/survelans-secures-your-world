@@ -132,8 +132,8 @@ function Home() {
               <a href="#waitlist" onClick={() => track("cta_click", "hero_waitlist")} className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gold text-primary-foreground font-medium hover:opacity-90 transition">
                 Join the Waitlist <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
               </a>
-              <a href="#how" onClick={() => track("cta_click", "hero_how")} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-gold/60 text-foreground hover:bg-gold/10 transition">
-                See How It Works
+              <a href="https://survelans-safety-app--cyberwithjoyce.replit.app/" target="_blank" rel="noopener noreferrer" onClick={() => track("cta_click", "hero_demo")} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-gold/60 text-foreground hover:bg-gold/10 transition">
+                Try the demo
               </a>
             </div>
           </div>
