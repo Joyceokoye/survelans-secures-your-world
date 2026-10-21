@@ -79,6 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "s4HGamWBUBJyqKTa8Rri5M6hkfmt25RLSlJFxLdD2fE" },
       { title: "Survélans — Safety Is Always Within Reach" },
       { name: "description", content: "Smart safety wearables, a panic-button app, and home security from Survélans." },
       { property: "og:type", content: "website" },
