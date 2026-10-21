@@ -24,9 +24,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Survélans — Safety Is Always Within Reach" },
-      { name: "description", content: "Discreet personal safety technology from Nigeria. A wearable and companion app designed to help you reach the people you trust. Join the waitlist." },
+      { name: "description", content: "Explore the Survelans SOS app and Safety Bracelet from Nigeria, designed to help you reach the people you trust. Try the demo or join the waitlist." },
       { property: "og:title", content: "Survélans — Safety Is Always Within Reach" },
-      { property: "og:description", content: "A discreet safety wearable and companion app in development. Join the Survelans waitlist." },
+      { property: "og:description", content: "Explore the Survelans SOS app demo and discreet Safety Bracelet in development. Join the Survelans waitlist." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -258,7 +258,7 @@ function Home() {
             </div>
           </div>
           <div>
-            <Eyebrow>Companion App</Eyebrow>
+            <Eyebrow>Survelans SOS app</Eyebrow>
             <h2 className="text-4xl md:text-5xl mb-6">Your personal safety companion, wherever you go.</h2>
             <ul className="space-y-3">
               {appFeatures.map((feature) => (
