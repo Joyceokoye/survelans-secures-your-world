@@ -23,10 +23,10 @@ export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
   head: () => ({
     meta: [
-      { title: "Survélans — Safety Is Always Within Reach" },
-      { name: "description", content: "Explore the Survelans SOS app and Safety Bracelet from Nigeria, designed to help you reach the people you trust. Try the demo or join the waitlist." },
-      { property: "og:title", content: "Survélans — Safety Is Always Within Reach" },
-      { property: "og:description", content: "Explore the Survelans SOS app demo and discreet Safety Bracelet in development. Join the Survelans waitlist." },
+      { title: "Survelans | Personal safety device in Nigeria" },
+      { name: "description", content: "Survelans is a Nigerian personal safety tech brand founded by Joyce Okoye. We build discreet SOS safety apps and Bluetooth wearables for emergency alerts in Nigeria." },
+      { property: "og:title", content: "Survelans | Personal safety device in Nigeria" },
+      { property: "og:description", content: "Survelans is a Nigerian personal safety tech brand founded by Joyce Okoye. We build discreet SOS safety apps and Bluetooth wearables for emergency alerts in Nigeria." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
