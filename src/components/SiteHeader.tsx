@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/survelans-logo-orange.png.asset.json";
+import logo from "@/assets/survelans-logo-orange.png";
 import { Menu, X } from "lucide-react";
 import { track } from "@/lib/track";
 
@@ -21,7 +21,7 @@ export function SiteHeader() {
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border">
       <div className="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src={logo.url} alt="Survélans home" className="h-[95px] w-auto" />
+          <img src={logo} alt="Survélans home" className="h-10 sm:h-12 w-auto" width={864} height={187} />
         </Link>
         <nav aria-label="Main" className="hidden lg:flex items-center gap-6">
           {links.map((l) => (

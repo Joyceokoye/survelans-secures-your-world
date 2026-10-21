@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/survelans-logo-orange.png.asset.json";
+import logo from "@/assets/survelans-logo-orange.png";
 import { Instagram, Twitter, Mail } from "lucide-react";
 import { track } from "@/lib/track";
 
@@ -13,7 +13,7 @@ export function SiteFooter() {
     <footer className="border-t border-border py-16">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
         <div className="md:col-span-2">
-          <img src={logo.url} alt="Survélans" className="h-[95px] w-auto mb-4" />
+          <img src={logo} alt="Survélans" className="h-12 w-auto mb-4" width={864} height={187} />
           <p className="text-lg font-display italic text-gold mb-2">Safety is always within reach.</p>
           <p className="text-sm text-muted-foreground max-w-xs mb-5">Discreet personal safety technology, made in Nigeria.</p>
           <div className="flex gap-3">
