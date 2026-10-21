@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/LegalPage";
 
 export const Route = createFileRoute("/cookies")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Cookie Policy — Survélans" },

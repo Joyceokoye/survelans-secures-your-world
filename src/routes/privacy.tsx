@@ -3,6 +3,7 @@ import { ArrowLeft, Mail } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 
 export const Route = createFileRoute("/privacy")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Privacy Policy — Survelans" },

@@ -20,6 +20,7 @@ const cameraOptions = [
 ];
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Survélans — Safety Is Always Within Reach" },
