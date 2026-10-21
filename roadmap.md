@@ -1,5 +1,5 @@
-- [ ] Rename “Companion App” to “Survelans SOS app” and verify the displayed name.
-- [ ] Finish Google Search Console property registration and sitemap submission; inspect Google indexing status without promising rankings.
+- [x] Rename “Companion App” to “Survelans SOS app” and verify the displayed name and search description.
+- [ ] Finish Google Search Console property registration and sitemap submission; indexing checks blocked because registration approval was declined again.
 - [x] Change the top “See how it works” button to “Try the demo” linked to the existing demo.
 - [ ] Replace the main bracelet photo with the newly uploaded product image.
 - [ ] Remove the background from the attached app screenshot and add it beside a live demo button linked to the supplied app.
