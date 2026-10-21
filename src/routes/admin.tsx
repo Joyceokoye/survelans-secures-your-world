@@ -41,7 +41,7 @@ function AdminPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border px-6 h-20 flex items-center justify-between">
-        <Link to="/"><img src={logo} alt="Survélans" className="h-8 w-auto" /></Link>
+        <Link to="/"><img src={logo} alt="Survélans" className="w-[49px] h-auto" /></Link>
         {session && <button onClick={() => supabase.auth.signOut()} className="text-sm text-muted-foreground hover:text-gold">Sign out</button>}
       </header>
       <main className="max-w-7xl mx-auto px-6 py-10">

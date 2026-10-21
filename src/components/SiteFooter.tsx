@@ -13,7 +13,7 @@ export function SiteFooter() {
     <footer className="border-t border-border py-16">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
         <div className="md:col-span-2">
-          <img src={logo} alt="Survélans" className="h-12 w-auto mb-4" width={864} height={187} />
+          <img src={logo} alt="Survélans" className="w-[84px] h-auto mb-4" width={864} height={187} />
           <p className="text-lg font-display italic text-gold mb-2">Safety is always within reach.</p>
           <p className="text-sm text-muted-foreground max-w-xs mb-5">Discreet personal safety technology, made in Nigeria.</p>
           <div className="flex gap-3">
