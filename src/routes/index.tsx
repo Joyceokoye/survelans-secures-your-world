@@ -68,7 +68,7 @@ function FlowAnimation() {
           </div>
         ))}
       </div>
-      <p className="mt-4 text-[11px] text-muted-foreground text-center">Concept illustration of the planned flow</p>
+      <p className="mt-4 text-[11px] text-muted-foreground text-center">How Survelans SOS device protects you</p>
     </div>
   );
 }
