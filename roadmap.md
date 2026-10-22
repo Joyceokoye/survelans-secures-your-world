@@ -1,9 +1,12 @@
 - [x] Rename “Companion App” to “Survelans SOS app” and verify the displayed name and search description.
 - [x] Finish Google Search Console property registration and sitemap submission — property added, sitemap submitted with 6 pages, 0 errors.
 - [x] Change the top “See how it works” button to “Try the demo” linked to the existing demo.
-- [ ] Replace the main bracelet photo with the newly uploaded product image.
-- [ ] Remove the background from the attached app screenshot and add it beside a live demo button linked to the supplied app.
-- [ ] Keep app feature names/descriptions, but remove development/planned labels.
-- [ ] Keep only the top and bottom waitlist sections; remove the product-level waitlist form.
-- [ ] Add a founder introduction section with the YouTube video embedded.
-- [ ] Verify desktop/mobile layout and current build status.
+- [x] Replace the main bracelet photo with the newly uploaded product image.
+- [x] Remove the background from the attached app screenshot and add it beside a live demo button linked to the supplied app.
+- [x] Keep app feature names/descriptions, but remove development/planned labels.
+- [x] Keep only the top and bottom waitlist sections; remove the product-level waitlist form.
+- [x] Add a founder introduction section with the YouTube video embedded.
+- [x] Verify desktop/mobile layout and current build status.
+- [x] Replace the top background photo with a Nigerian woman walking home at night looking at her phone.
+- [ ] Confirm the admin account has the admin role so the admin page opens (needs the role granted in the backend).
+- [ ] Add the missing brand fonts and real app screenshots when supplied.
