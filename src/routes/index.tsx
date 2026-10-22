@@ -1,4 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { WaitlistForm } from "@/components/WaitlistForm";
@@ -11,7 +14,7 @@ import camera from "@/assets/camera.jpg";
 import alarm from "@/assets/alarm.jpg";
 import taser from "@/assets/taser.jpg";
 import pepperspray from "@/assets/pepperspray.jpg";
-import { Watch, Smartphone, MapPin, Users, Bluetooth, Hand, Share2, Mic, ShieldCheck, ArrowRight } from "lucide-react";
+import { Watch, Smartphone, MapPin, Users, Bluetooth, Hand, Share2, Mic, ShieldCheck, ArrowRight, ShoppingCart, Trash2 } from "lucide-react";
 
 const cameraOptions = [
   { name: "Mini Indoor Camera", price: "₦20,000" },
@@ -111,6 +114,25 @@ const faqs = [
 ];
 
 function Home() {
+  const [selectedCamera, setSelectedCamera] = useState(cameraOptions[0].name);
+  const [cart, setCart] = useState<{ name: string; price: string; quantity: number }[]>([]);
+  const [cartNotice, setCartNotice] = useState("");
+  const cartCount = cart.reduce((count, item) => count + item.quantity, 0);
+
+  function addToCart(product: (typeof others)[number]) {
+    const option = cameraOptions.find((item) => item.name === selectedCamera);
+    const name = product.t === "Home Camera" ? option?.name : product.t;
+    const price = product.price ?? option?.price;
+    if (!name || !price) return;
+    setCart((items) => {
+      const existing = items.find((item) => item.name === name);
+      return existing
+        ? items.map((item) => item.name === name ? { ...item, quantity: item.quantity + 1 } : item)
+        : [...items, { name, price, quantity: 1 }];
+    });
+    setCartNotice(`${name} added to cart.`);
+  }
+
   return (
     <div id="top" className="min-h-screen bg-background text-foreground">
       <SiteHeader />
@@ -185,14 +207,42 @@ function Home() {
           </div>
 
           <div className="mt-24">
-            <h3 className="text-3xl mb-8">Explore Other Safety Products</h3>
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+              <h3 className="text-3xl">Explore Other Safety Products</h3>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button variant="outline" size="sm" aria-label={`View cart, ${cartCount} items`}>
+                    <ShoppingCart /> Cart ({cartCount})
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent align="end" className="w-80 max-w-[calc(100vw-2rem)]">
+                  <p className="font-semibold mb-3">Your cart</p>
+                  {cart.length === 0 ? <p className="text-sm text-muted-foreground">Your cart is empty.</p> : (
+                    <ul className="max-h-72 overflow-y-auto space-y-3">
+                      {cart.map((item) => (
+                        <li key={item.name} className="flex items-center justify-between gap-3">
+                          <div className="min-w-0">
+                            <p className="text-sm">{item.name}</p>
+                            <p className="text-xs text-muted-foreground">{item.price} × {item.quantity}</p>
+                          </div>
+                          <Button variant="ghost" size="icon" aria-label={`Remove ${item.name} from cart`} onClick={() => setCart((items) => items.filter((entry) => entry.name !== item.name))}>
+                            <Trash2 />
+                          </Button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </PopoverContent>
+              </Popover>
+            </div>
+            <p role="status" className="sr-only">{cartNotice}</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {others.map((p) => (
                 <article key={p.t} className="bg-card border border-border rounded-lg overflow-hidden" onMouseEnter={() => track("product_interest", p.t)}>
                   <div className="aspect-square overflow-hidden bg-secondary">
                     <img src={p.img} alt={p.t} loading="lazy" className="w-full h-full object-cover" />
                   </div>
-                  <div className="p-5">
+                  <div className="p-5 flex flex-col flex-1">
                     <div className="flex justify-between items-baseline mb-2 gap-2">
                       <h3 className="text-lg font-display font-semibold">{p.t}</h3>
                       {p.price && <span className="text-gold text-sm font-medium">{p.price}</span>}
@@ -201,11 +251,16 @@ function Home() {
                     {p.t === "Home Camera" && (
                       <label className="block mt-4">
                         <span className="sr-only">Choose a home camera</span>
-                        <select className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
-                          {cameraOptions.map((o) => <option key={o.name}>{o.name} — {o.price}</option>)}
+                        <select value={selectedCamera} onChange={(event) => setSelectedCamera(event.target.value)} className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
+                          {cameraOptions.map((o) => <option key={o.name} value={o.name}>{o.name} — {o.price}</option>)}
                         </select>
                       </label>
                     )}
+                    <div className="pt-4 mt-auto">
+                      <Button size="sm" onClick={() => addToCart(p)} aria-label={`Add ${p.t} to cart`}>
+                        <ShoppingCart /> Add to cart
+                      </Button>
+                    </div>
                   </div>
                 </article>
               ))}

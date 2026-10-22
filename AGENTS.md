@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep the public privacy notice in its own `/privacy` route so legal information is linkable and readable independently of the landing page.
+- The homepage product cart uses page-local React state and the selected camera variant; it does not create orders or process payments, keeping shopping controls presentation-only.
