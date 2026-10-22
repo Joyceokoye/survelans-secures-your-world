@@ -331,7 +331,7 @@ function Home() {
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <Eyebrow>Introducing the Founder</Eyebrow>
-            <h2 className="text-4xl md:text-5xl mb-6">The person behind Survelans.</h2>
+            <h2 className="text-4xl md:text-5xl mb-6">Why Survelans.</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">Meet Joyce Okoye, founder of Survelans, and hear the story behind the brand.</p>
           </div>
           <div className="aspect-[9/16] max-h-[680px] w-full overflow-hidden rounded-lg border border-border bg-card">
