@@ -68,8 +68,8 @@ export function WaitlistForm({ source, compact = false }: { source: string; comp
           <input name="email" type="email" required maxLength={255} placeholder="Email address" className={input} autoComplete="email" />
         </label>
       </div>
-      <label className="block"><span className="sr-only">Phone number (optional)</span>
-        <input name="phone" type="tel" maxLength={30} placeholder="Phone number (optional)" className={input} autoComplete="tel" />
+      <label className="block"><span className="sr-only">Phone number</span>
+        <input name="phone" type="tel" maxLength={30} placeholder="Phone number" className={input} autoComplete="tel" />
       </label>
       <input name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
       <label className="flex items-start gap-2 text-xs text-muted-foreground">
