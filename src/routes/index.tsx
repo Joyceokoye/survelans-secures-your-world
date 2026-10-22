@@ -252,7 +252,7 @@ function Home() {
                       <label className="block mt-4">
                         <span className="sr-only">Choose a home camera</span>
                         <select value={selectedCamera} onChange={(event) => setSelectedCamera(event.target.value)} className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
-                          {cameraOptions.map((o) => <option key={o.name}>{o.name} — {o.price}</option>)}
+                          {cameraOptions.map((o) => <option key={o.name} value={o.name}>{o.name} — {o.price}</option>)}
                         </select>
                       </label>
                     )}
