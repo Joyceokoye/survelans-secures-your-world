@@ -7,7 +7,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { WaitlistForm } from "@/components/WaitlistForm";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { track } from "@/lib/track";
-import hero from "@/assets/hero.jpg";
+import hero from "@/assets/hero-night.jpg";
 import bracelet from "@/assets/survelans-safety-bracelet.jpg";
 import appScreenshot from "@/assets/app-screenshot-cutout.png";
 import camera from "@/assets/camera.jpg";
@@ -139,7 +139,7 @@ function Home() {
 
       {/* HERO */}
       <section className="relative min-h-screen flex items-center pt-28 overflow-hidden">
-        <img src={hero} alt="" className="absolute inset-0 w-full h-full object-cover opacity-50" width={1920} height={1080} />
+        <img src={hero} alt="" className="absolute inset-0 w-full h-full object-cover opacity-50" width={1920} height={1088} />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
         <div className="relative max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center w-full">
