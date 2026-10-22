@@ -144,7 +144,7 @@ function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
         <div className="relative max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center w-full">
           <div>
-            <h1 className="text-5xl md:text-7xl leading-[1.05] mb-6">
+            <h1 className="headline-pulse text-5xl md:text-7xl leading-[1.05] mb-6">
               Safety is always <br /> <span className="gold-text italic">within reach.</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-md mb-8">
