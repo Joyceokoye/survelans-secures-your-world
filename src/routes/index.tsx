@@ -150,11 +150,8 @@ function Home() {
             <p className="text-[13px] text-foreground max-w-sm mb-3 leading-relaxed">
               What if you had just 5 seconds to call for help? You notice someone following you on a quiet street, or you've been in a medical emergency. In moments like these, those few seconds could mean everything.
             </p>
-            <p className="text-[13px] font-bold text-gold max-w-sm mb-3 leading-relaxed">
-              That's why we're building Survelans.
-            </p>
             <p className="text-[13px] text-foreground max-w-sm mb-3 leading-relaxed">
-              A discreet safety bracelet designed to alert your loved ones, share your live location and capture a 30-second emergency audio recording, all with a simple press.
+              <span className="font-bold text-gold">Survelans SOS device</span> is a discreet safety bracelet designed to alert your loved ones, share your live location and capture a 30-second emergency audio recording, all with a simple press.
             </p>
             <p className="text-[13px] text-foreground max-w-sm mb-3 leading-relaxed">
               So even when you can't call, speak or reach your phone, someone you trust can know you're in danger, where to find you and what might be happening.
