@@ -147,16 +147,19 @@ function Home() {
             <h1 className="headline-pulse text-5xl md:text-7xl leading-[1.05] mb-6">
               Safety is always <br /> <span className="gold-text italic">within reach.</span>
             </h1>
-            <p className="text-base text-muted-foreground max-w-md mb-3 leading-relaxed">
+            <p className="text-[11px] text-foreground max-w-md mb-3 leading-relaxed">
               What if you had just 5 seconds to call for help? You notice someone following you on a quiet street. Your phone is buried in your bag. Or you've been in an accident, you're hurt, and you can't even explain where you are. In moments like these, those few seconds could mean everything.
             </p>
-            <p className="text-base text-muted-foreground max-w-md mb-3 leading-relaxed">
-              That's why we're building Survelans. A discreet safety bracelet designed to alert your loved ones, share your live location and capture a 30-second emergency audio recording, all with a simple press.
+            <p className="text-[11px] font-bold text-gold max-w-md mb-3 leading-relaxed">
+              That's why we're building Survelans.
             </p>
-            <p className="text-base text-muted-foreground max-w-md mb-3 leading-relaxed">
+            <p className="text-[11px] text-foreground max-w-md mb-3 leading-relaxed">
+              A discreet safety bracelet designed to alert your loved ones, share your live location and capture a 30-second emergency audio recording, all with a simple press.
+            </p>
+            <p className="text-[11px] text-foreground max-w-md mb-3 leading-relaxed">
               So even when you can't call, speak or reach your phone, someone you trust can know you're in danger, where to find you and what might be happening.
             </p>
-            <p className="text-base font-medium text-foreground max-w-md mb-8 leading-relaxed">
+            <p className="text-[11px] font-bold text-gold max-w-md mb-8 leading-relaxed">
               Because in an emergency, every second counts.
             </p>
             <div className="flex flex-wrap gap-4">
