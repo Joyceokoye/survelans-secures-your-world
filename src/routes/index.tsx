@@ -147,16 +147,16 @@ function Home() {
             <h1 className="headline-pulse text-5xl md:text-7xl leading-[1.05] mb-12">
               Safety is always <br /> <span className="gold-text italic">within reach.</span>
             </h1>
-            <p className="text-[13px] text-foreground max-w-sm mb-3 leading-relaxed">
+            <p className="text-[16px] text-foreground max-w-sm mb-3 leading-relaxed">
               What if you had just 5 seconds to call for help? You notice someone following you on a quiet street, or you've been in a medical emergency. In moments like these, those few seconds could mean everything.
             </p>
-            <p className="text-[13px] text-foreground max-w-sm mb-3 leading-relaxed">
+            <p className="text-[16px] text-foreground max-w-sm mb-3 leading-relaxed">
               <span className="font-bold text-gold">Survelans SOS device</span> is a discreet safety bracelet designed to alert your loved ones, share your live location and capture a 30-second emergency audio recording, all with a simple press.
             </p>
-            <p className="text-[13px] text-foreground max-w-sm mb-3 leading-relaxed">
+            <p className="text-[16px] text-foreground max-w-sm mb-3 leading-relaxed">
               So even when you can't call, speak or reach your phone, someone you trust can know you're in danger, where to find you and what might be happening.
             </p>
-            <p className="text-[13px] font-bold text-gold max-w-sm mb-8 leading-relaxed">
+            <p className="text-[16px] font-bold text-gold max-w-sm mb-8 leading-relaxed">
               Because in an emergency, every second counts.
             </p>
             <div className="flex flex-wrap gap-4">
