@@ -148,7 +148,7 @@ function Home() {
               Safety is always <br /> <span className="gold-text italic">within reach.</span>
             </h1>
             <p className="text-[16px] text-foreground max-w-sm mb-3 leading-relaxed">
-              What if you had just 5 seconds to call for help? You notice someone following you on a quiet street, or you've been in a medical emergency. In moments like these, those few seconds could mean everything.
+              What if you had just 5 seconds to call for help?
             </p>
             <p className="text-[16px] text-foreground max-w-sm mb-3 leading-relaxed">
               <span className="font-bold text-gold">Survelans SOS device</span> is a discreet safety bracelet designed to alert your loved ones, share your live location and capture a 30-second emergency audio recording, all with a simple press.
