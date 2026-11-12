@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/survelans-logo-orange.png";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -19,14 +19,27 @@ const teamLinks = [{ href: "/meet-the-team", label: "Meet the Team" }];
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
-  // Desktop: hover and click each keep the panel open on their own, so a click
-  // right after hovering doesn't toggle the panel shut again.
-  const [hoverOpen, setHoverOpen] = useState(false);
-  const [clickOpen, setClickOpen] = useState(false);
+  // The panel opens only when the button is clicked, and closes on an outside
+  // click, an Escape press, or a selection.
+  const [teamOpen, setTeamOpen] = useState(false);
+  const teamRef = useRef<HTMLDivElement>(null);
   const [mobileTeamOpen, setMobileTeamOpen] = useState(false);
-  const teamOpen = hoverOpen || clickOpen;
 
-  const closeTeam = () => { setHoverOpen(false); setClickOpen(false); };
+  useEffect(() => {
+    if (!teamOpen) return;
+    const onPointerDown = (e: MouseEvent) => {
+      if (teamRef.current && !teamRef.current.contains(e.target as Node)) setTeamOpen(false);
+    };
+    const onKeyDown = (e: KeyboardEvent) => { if (e.key === "Escape") setTeamOpen(false); };
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [teamOpen]);
+
+  const closeTeam = () => setTeamOpen(false);
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border">
