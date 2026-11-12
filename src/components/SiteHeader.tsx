@@ -19,7 +19,14 @@ const teamLinks = [{ href: "/meet-the-team", label: "Meet the Team" }];
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
-  const [teamOpen, setTeamOpen] = useState(false);
+  // Desktop: hover and click each keep the panel open on their own, so a click
+  // right after hovering doesn't toggle the panel shut again.
+  const [hoverOpen, setHoverOpen] = useState(false);
+  const [clickOpen, setClickOpen] = useState(false);
+  const [mobileTeamOpen, setMobileTeamOpen] = useState(false);
+  const teamOpen = hoverOpen || clickOpen;
+
+  const closeTeam = () => { setHoverOpen(false); setClickOpen(false); };
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border">
@@ -33,14 +40,16 @@ export function SiteHeader() {
           ))}
           <div
             className="relative"
-            onMouseEnter={() => setTeamOpen(true)}
-            onMouseLeave={() => setTeamOpen(false)}
+            onMouseEnter={() => setHoverOpen(true)}
+            onMouseLeave={() => { setHoverOpen(false); setClickOpen(false); }}
+            onFocus={() => setHoverOpen(true)}
+            onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) closeTeam(); }}
           >
             <button
               type="button"
               aria-expanded={teamOpen}
               aria-haspopup="true"
-              onClick={() => setTeamOpen((v) => !v)}
+              onClick={() => setClickOpen((v) => !v)}
               className="flex items-center gap-1 text-sm text-muted-foreground hover:text-gold transition-colors"
             >
               Meet the Team
@@ -53,7 +62,7 @@ export function SiteHeader() {
                     <a
                       key={l.href}
                       href={l.href}
-                      onClick={() => { setTeamOpen(false); track("nav_click", "meet_the_team"); }}
+                      onClick={() => { closeTeam(); track("nav_click", "meet_the_team"); }}
                       className="block rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-gold hover:bg-card"
                     >
                       {l.label}
@@ -80,21 +89,21 @@ export function SiteHeader() {
             <div>
               <button
                 type="button"
-                aria-expanded={teamOpen}
+                aria-expanded={mobileTeamOpen}
                 aria-haspopup="true"
-                onClick={() => setTeamOpen((v) => !v)}
+                onClick={() => setMobileTeamOpen((v) => !v)}
                 className="flex items-center gap-1 text-sm text-muted-foreground"
               >
                 Meet the Team
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${teamOpen ? "rotate-180" : ""}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${mobileTeamOpen ? "rotate-180" : ""}`} />
               </button>
-              {teamOpen && (
+              {mobileTeamOpen && (
                 <div className="mt-2 pl-3 border-l border-border flex flex-col gap-2">
                   {teamLinks.map((l) => (
                     <a
                       key={l.href}
                       href={l.href}
-                      onClick={() => { setOpen(false); setTeamOpen(false); track("nav_click", "meet_the_team"); }}
+                      onClick={() => { setOpen(false); setMobileTeamOpen(false); track("nav_click", "meet_the_team"); }}
                       className="text-sm text-muted-foreground"
                     >
                       {l.label}
