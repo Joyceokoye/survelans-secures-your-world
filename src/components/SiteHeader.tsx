@@ -51,18 +51,12 @@ export function SiteHeader() {
           {links.map((l) => (
             <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-gold transition-colors">{l.label}</a>
           ))}
-          <div
-            className="relative"
-            onMouseEnter={() => setHoverOpen(true)}
-            onMouseLeave={() => { setHoverOpen(false); setClickOpen(false); }}
-            onFocus={() => setHoverOpen(true)}
-            onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) closeTeam(); }}
-          >
+          <div className="relative" ref={teamRef}>
             <button
               type="button"
               aria-expanded={teamOpen}
               aria-haspopup="true"
-              onClick={() => setClickOpen((v) => !v)}
+              onClick={() => setTeamOpen((v) => !v)}
               className="flex items-center gap-1 text-sm text-muted-foreground hover:text-gold transition-colors"
             >
               Meet the Team
