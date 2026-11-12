@@ -30,11 +30,8 @@ function MeetTheTeamPage() {
         </div>
         <p className="text-gold text-xs tracking-[0.3em] uppercase mb-4">Coming Soon</p>
         <h1 className="text-4xl md:text-6xl mb-6">Meet the Team</h1>
-        <p className="text-muted-foreground text-lg mb-4">
-          We are putting the people behind Survelans together. This page will introduce the team building our safety bracelet and SOS app.
-        </p>
-        <p className="text-muted-foreground text-sm mb-10">
-          In the meantime, join the waitlist and we will let you know when this page is ready.
+        <p className="text-muted-foreground text-lg mb-10">
+          We are putting the people behind Survelans together. In the meantime, join the waitlist and we will let you know when this page is ready.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <a href="/#waitlist" className="px-7 py-3 rounded-full bg-gold text-primary-foreground font-medium hover:opacity-90 transition">
