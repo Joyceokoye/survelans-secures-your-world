@@ -10,5 +10,6 @@
 - [x] Replace the top background photo with a Nigerian woman walking home at night looking at her phone.
 - [x] Add a "Meet the Team" dropdown in the menu leading to a coming soon page.
 - [x] Make Meet the Team reachable only by clicking the dropdown button: no hover opening, no footer link.
+- [x] Replace the site logo with the new inverted orange-accent logo (header, footer, admin, tab icon).
 - [ ] Confirm the admin account has the admin role so the admin page opens (needs the role granted in the backend).
 - [ ] Add the missing brand fonts and real app screenshots when supplied.
