@@ -9,6 +9,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { track } from "@/lib/track";
 import hero from "@/assets/hero-night.jpg";
 import bracelet from "@/assets/safety-bracelet-male-female.png.asset.json";
+import demoVideo from "@/assets/survelans-sos-demo-loop.mp4.asset.json";
 import appScreenshot from "@/assets/app-screenshot-cutout.png";
 import camera from "@/assets/camera.jpg";
 import alarm from "@/assets/alarm.jpg";
@@ -50,25 +51,25 @@ function FlowAnimation() {
   ];
   return (
     <div aria-label="How an alert travels: wearable, to phone, to GPS and alert, to trusted contacts" role="img"
-      className="rounded-2xl border border-border bg-card/70 backdrop-blur p-6">
+      className="rounded-2xl border border-border bg-card/70 backdrop-blur p-4">
       <div className="flex items-center justify-between">
         {steps.map(({ Icon, label }, i) => (
           <div key={label} className="flex items-center flex-1 last:flex-none">
-            <div className="flex flex-col items-center gap-2">
-              <div className="flow-node w-14 h-14 rounded-full border border-gold/50 bg-gold/10 flex items-center justify-center" style={{ animationDelay: `${i * 0.6}s` }}>
-                <Icon className="w-6 h-6 text-gold" />
+            <div className="flex flex-col items-center gap-1.5">
+              <div className="flow-node w-10 h-10 rounded-full border border-gold/50 bg-gold/10 flex items-center justify-center" style={{ animationDelay: `${i * 0.6}s` }}>
+                <Icon className="w-5 h-5 text-gold" />
               </div>
-              <span className="text-[11px] text-muted-foreground text-center w-16">{label}</span>
+              <span className="text-[10px] text-muted-foreground text-center w-14">{label}</span>
             </div>
             {i < steps.length - 1 && (
-              <div className="flex-1 h-px bg-border mx-1 mb-6 relative overflow-hidden">
+              <div className="flex-1 h-px bg-border mx-1 mb-4 relative overflow-hidden">
                 <span className="flow-pulse absolute inset-y-0 w-1/3 bg-gold" style={{ animationDelay: `${i * 0.6}s` }} />
               </div>
             )}
           </div>
         ))}
       </div>
-      <p className="mt-4 text-[11px] text-muted-foreground text-center">How Survelans SOS device protects you</p>
+      <p className="mt-3 text-[10px] text-muted-foreground text-center">How Survelans SOS device protects you</p>
     </div>
   );
 }
@@ -168,7 +169,19 @@ function Home() {
               </a>
             </div>
           </div>
-          <FlowAnimation />
+          <div className="w-full flex flex-col gap-3">
+            <video
+              src={demoVideo.url}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Survelans safety bracelet in action"
+              className="w-full aspect-video rounded-2xl border border-border bg-black object-cover"
+            />
+            <FlowAnimation />
+          </div>
         </div>
       </section>
 
