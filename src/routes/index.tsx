@@ -15,7 +15,7 @@ import camera from "@/assets/camera.jpg";
 import alarm from "@/assets/alarm.jpg";
 import taser from "@/assets/taser.jpg";
 import pepperspray from "@/assets/pepperspray.jpg";
-import { Watch, Smartphone, MapPin, Users, Bluetooth, Hand, Share2, Mic, ShieldCheck, ArrowRight, ShoppingCart, Trash2 } from "lucide-react";
+import { Watch, Siren, MapPin, Users, Bluetooth, Hand, Share2, Mic, ShieldCheck, ArrowRight, ShoppingCart, Trash2 } from "lucide-react";
 
 const cameraOptions = [
   { name: "Mini Indoor Camera", price: "₦20,000" },
@@ -45,12 +45,12 @@ function Eyebrow({ children }: { children: string }) {
 function FlowAnimation() {
   const steps = [
     { Icon: Watch, label: "Wearable" },
-    { Icon: Smartphone, label: "Your phone" },
     { Icon: MapPin, label: "GPS + alert" },
     { Icon: Users, label: "Trusted contacts" },
+    { Icon: Siren, label: "Emergency Authorities" },
   ];
   return (
-    <div aria-label="How an alert travels: wearable, to phone, to GPS and alert, to trusted contacts" role="img"
+    <div aria-label="How an alert travels: wearable, to GPS and alert, to trusted contacts, to emergency authorities" role="img"
       className="rounded-2xl border border-border bg-card/70 backdrop-blur p-4">
       <div className="flex items-center justify-between">
         {steps.map(({ Icon, label }, i) => (
@@ -59,7 +59,7 @@ function FlowAnimation() {
               <div className="flow-node w-10 h-10 rounded-full border border-gold/50 bg-gold/10 flex items-center justify-center" style={{ animationDelay: `${i * 0.6}s` }}>
                 <Icon className="w-5 h-5 text-gold" />
               </div>
-              <span className="text-[10px] text-muted-foreground text-center w-14">{label}</span>
+              <span className="text-[10px] text-muted-foreground text-center w-16">{label}</span>
             </div>
             {i < steps.length - 1 && (
               <div className="flex-1 h-px bg-border mx-1 mb-4 relative overflow-hidden">
