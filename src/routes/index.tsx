@@ -8,7 +8,7 @@ import { WaitlistForm } from "@/components/WaitlistForm";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { track } from "@/lib/track";
 import hero from "@/assets/hero-night.jpg";
-import bracelet from "@/assets/survelans-safety-bracelet.jpg";
+import bracelet from "@/assets/safety-bracelet-male-female.png.asset.json";
 import appScreenshot from "@/assets/app-screenshot-cutout.png";
 import camera from "@/assets/camera.jpg";
 import alarm from "@/assets/alarm.jpg";
@@ -204,8 +204,7 @@ function Home() {
           <Eyebrow>Our Product</Eyebrow>
           <div className="grid lg:grid-cols-5 gap-10 items-start">
             <div className="lg:col-span-3 relative rounded-2xl overflow-hidden border border-border bg-secondary">
-              <img src={bracelet} alt="Survelans Safety Bracelet" className="w-full aspect-[4/3] object-cover" width={1920} height={1072} />
-              <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-background/80 border border-gold/50 text-xs text-gold">Prototype — concept image</span>
+              <img src={bracelet.url} alt="Survelans safety bracelets, a men's style and a women's style" className="w-full h-auto object-contain p-6 md:p-10" width={642} height={191} loading="lazy" />
             </div>
             <div className="lg:col-span-2">
               <h2 className="text-4xl md:text-5xl mb-4">The Survelans Safety Bracelet</h2>
