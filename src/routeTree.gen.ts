@@ -14,6 +14,7 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as DataRetentionRouteImport } from './routes/data-retention'
+import { Route as DemoRouteImport } from './routes/demo'
 import { Route as MeetTheTeamRouteImport } from './routes/meet-the-team'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -44,6 +45,11 @@ const DataRetentionRoute = DataRetentionRouteImport.update({
   path: '/data-retention',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DemoRoute = DemoRouteImport.update({
+  id: '/demo',
+  path: '/demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MeetTheTeamRoute = MeetTheTeamRouteImport.update({
   id: '/meet-the-team',
   path: '/meet-the-team',
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/data-retention': typeof DataRetentionRoute
+  '/demo': typeof DemoRoute
   '/meet-the-team': typeof MeetTheTeamRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/data-retention': typeof DataRetentionRoute
+  '/demo': typeof DemoRoute
   '/meet-the-team': typeof MeetTheTeamRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/data-retention': typeof DataRetentionRoute
+  '/demo': typeof DemoRoute
   '/meet-the-team': typeof MeetTheTeamRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/data-retention'
+    | '/demo'
     | '/meet-the-team'
     | '/privacy'
     | '/sitemap.xml'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/data-retention'
+    | '/demo'
     | '/meet-the-team'
     | '/privacy'
     | '/sitemap.xml'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/data-retention'
+    | '/demo'
     | '/meet-the-team'
     | '/privacy'
     | '/sitemap.xml'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   DataRetentionRoute: typeof DataRetentionRoute
+  DemoRoute: typeof DemoRoute
   MeetTheTeamRoute: typeof MeetTheTeamRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -184,6 +197,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DataRetentionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/demo': {
+      id: '/demo'
+      path: '/demo'
+      fullPath: '/demo'
+      preLoaderRoute: typeof DemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/meet-the-team': {
       id: '/meet-the-team'
       path: '/meet-the-team'
@@ -221,6 +241,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   DataRetentionRoute: DataRetentionRoute,
+  DemoRoute: DemoRoute,
   MeetTheTeamRoute: MeetTheTeamRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
