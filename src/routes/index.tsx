@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -162,9 +162,9 @@ function Home() {
               <a href="#waitlist" onClick={() => track("cta_click", "hero_waitlist")} className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gold text-primary-foreground font-medium hover:opacity-90 transition">
                 Join the Waitlist <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
               </a>
-              <a href="https://survelans-safety-app--cyberwithjoyce.replit.app/" target="_blank" rel="noopener noreferrer" onClick={() => track("cta_click", "hero_demo")} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-gold/60 text-foreground hover:bg-gold/10 transition">
+              <Link to="/demo" onClick={() => track("cta_click", "hero_demo")} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-gold/60 text-foreground hover:bg-gold/10 transition">
                 Try the demo
-              </a>
+              </Link>
             </div>
           </div>
           <div className="w-full flex flex-col gap-3">
@@ -323,12 +323,12 @@ function Home() {
           <div className="flex flex-col items-center gap-6">
             <img src={appScreenshot} alt="Survelans safety app home screen displayed on a phone" className="w-full max-w-sm object-contain" loading="lazy" />
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <a href="https://survelans-safety-app--cyberwithjoyce.replit.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-gold/60 px-5 py-3.5 text-sm font-semibold text-gold hover:bg-gold/10 transition">
-                <span className="h-2 w-2 rounded-full bg-gold" aria-hidden="true" /> LIVE
-              </a>
-              <a href="https://survelans-safety-app--cyberwithjoyce.replit.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-primary-foreground font-medium hover:opacity-90 transition">
+              <Link to="/demo" className="inline-flex items-center gap-2 rounded-full border border-gold/60 px-5 py-3.5 text-sm font-semibold text-gold hover:bg-gold/10 transition">
+                <span className="h-2 w-2 rounded-full bg-gold" aria-hidden="true" /> COMING SOON
+              </Link>
+              <Link to="/demo" className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-primary-foreground font-medium hover:opacity-90 transition">
                 Try the free demo <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </div>
           </div>
           <div>
